@@ -1,39 +1,28 @@
-import { useState } from 'react'
-import reactLogo from '/react.svg'
-import viteLogo from '/vite.svg'
-import tailwindLogo from '/tailwind.png'
-import './App.css'
+import "./index.css";
+import "./App.css";
+import "swiper/css";
+import "swiper/css/navigation";
+
+import Header from "./components/Header";
+import LandingFragment from "./components/LandingFragment";
+import AboutFragment from "./components/AboutFragment";
+import RuppellBand from "./components/RuppellBand";
+import CoursesFragment from "./components/CoursesFragment";
+import Footer from "./components/Footer";
+import ExpertsFragment from "./components/ExpertsFragment";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className="flex space-x-4 justify-center">
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://tailwind.dev" target="_blank">
-          <img src={tailwindLogo} className="logo tailwind" alt="Tailwind logo" />
-        </a>
-      </div>
-      <h1>Vite + React + Tailwind</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <LandingFragment />
+      <AboutFragment />
+      <RuppellBand />
+      <CoursesFragment />
+      <ExpertsFragment />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

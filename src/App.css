@@ -1,44 +1,163 @@
 @import "tailwindcss";
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@theme {
+  --color-golden-yellow-500: #e7bb34;
+  --color-secondary-yellow-500: #efc034;
+  --color-orange-earth-500: #b45b38;
+  --color-soft-brown-500: #d3bba3;
+  --color-beige-sand-500: #efede2;
+  --color-deep-black-500: #282829;
+  --color-deep-second-black-500: #1e1e1e;
+  --color-muted-500: #c9c9c9;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.bg-custom-gray {
+  background-color: #282829;
+  background-image: url("./assets/backgound_gray.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+body {
+  width: 100vw !important;
+  min-width: 300px !important;
+}
+
+body,
+section {
+  overflow-x: hidden !important;
+}
+
+section {
+  overflow-y: hidden;
+}
+
+section,
+header {
+  min-width: 300px !important;
+}
+
+.bg-gradient {
+  background: rgb(40, 40, 41) !important;
+  background: linear-gradient(
+    180deg,
+    rgb(39, 39, 40) 0%,
+    rgba(0, 0, 0, 1) 100%
+  ) !important;
+}
+
+#landing-fragment .swiper-slide {
+  width: 250px !important;
+  height: 200px !important;
+}
+
+#landing-fragment .swiper-slide img {
+  display: block;
+  min-width: 250px;
+  height: 180px;
+  object-fit: cover;
+}
+
+
+
+#ruppell-band {
+  background-image: url("./assets/ruppell-band.png");
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+
+@media (max-width: 299px) {
+  #logo-silver-animation {
+    transform: rotate(0deg) !important;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (min-width: 400px) {
+  #landing-fragment .swiper-slide {
+    width: 400px !important;
+    height: 200px !important;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 768px) {
+  #circle-background {
+    left: -200px !important;
+  }
+
+  #circle-background img {
+    min-width: 580px !important;
   }
 }
 
-.card {
-  padding: 2em;
+@media (min-width: 400px) and (max-width: 768px) {
+  #logo-silver {
+    max-width: 400px !important;
+  }
+  #bird-nest {
+    bottom: -270px !important;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media (max-width: 600px) {
+  #logo-silver-section-2 {
+    right: 10px !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  #circle-background-module {
+    display: block !important;
+  }
+
+  .text-custom-size-1 {
+    font-size: 3.75rem !important;
+    line-height: 4rem !important;
+  }
+}
+
+@media (min-width: 455px) and (max-width: 768px) {
+  #second-section-about {
+    min-height: 1000px !important;
+  }
+
+  #text-section-1 {
+    top: 320px !important;
+  }
+
+  #text-section-2 {
+    text-align: center;
+    margin: 0 auto !important;
+  }
+
+  #circle-background {
+    top: 180px !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1160px) {
+  .margin-dicrease-1 {
+    padding-right: 200px;
+    top: 300px !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1170px) {
+  #bird-nest {
+    bottom: -200px !important;
+  }
+}
+
+@media (min-width: 1071px) {
+  #bird-nest {
+    bottom: -200px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .margin-dicrease-1 {
+    top: 340px !important;
+    padding-right: 90px;
+    width: 600px !important;
+  }
 }
