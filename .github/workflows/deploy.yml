@@ -15,7 +15,7 @@ on:
 jobs:
   deploy:
     name: Deploy to Server
-    runs-on: [ruppell-core]
+    runs-on: [self-hosted]
     
     steps:
       - name: Checkout code
@@ -33,6 +33,7 @@ jobs:
           
       - name: Create environment file
         run: |
+          echo "VITE_SERVER_URL=https://${{ vars.DOMAIN }}" > .env
           echo "VITE_API_BASE_URL=https://${{ vars.DOMAIN }}/api" >> .env
           echo "VITE_API_VERSION=v1" >> .env
           echo "VITE_FRONT_USERNAME_API=${{ vars.API_USERNAME }}" >> .env
@@ -41,9 +42,7 @@ jobs:
 
       - name: Complete system cleanup before deploy
         run: |
-          docker-compose down -v --remove-orphans || true
-          
-          docker system prune -f --volumes --all || true
+          docker-compose down || true
           
           npm cache clean --force || true
           rm -rf node_modules || true
@@ -158,7 +157,8 @@ jobs:
       - name: Post-deploy cleanup
         if: always()
         run: |
-          docker system prune -f || true
+          # Only clean up unused images, not running containers
+          docker image prune -f || true
           npm cache clean --force || true
           
           echo "=== Final Disk Usage ==="
