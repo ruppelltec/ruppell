@@ -53,12 +53,6 @@ jobs:
           df -h
           docker system df
 
-      - name: Ensure Docker network and volumes exist
-        run: |
-          docker network inspect linker-network >/dev/null 2>&1 || docker network create linker-network
-          docker volume inspect certbot-etc >/dev/null 2>&1 || docker volume create certbot-etc
-          docker volume inspect certbot-var >/dev/null 2>&1 || docker volume create certbot-var
-          
       - name: Build and start services
         env:
           VITE_SERVER_URL: https://${{ vars.DOMAIN }}

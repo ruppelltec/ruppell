@@ -2,7 +2,6 @@ version: '3.8'
 
 networks:
   linker-network:
-    external: true
 
 services:
   # Nginx reverse proxy with SSL and frontend static files
@@ -13,7 +12,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - certbot-etc:/etc/letsencrypt:ro
+      - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/www/certbot
     restart: unless-stopped
     networks:
@@ -42,6 +41,4 @@ services:
 
 volumes:
   certbot-etc:
-    external: true
   certbot-var:
-    external: true
