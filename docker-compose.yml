@@ -5,16 +5,9 @@ networks:
     external: true
 
 services:
-  # Frontend service (Vite app)
-  frontend:
-    build: .
-    restart: unless-stopped
-    networks:
-      - linker-network
-
-  # Nginx reverse proxy with SSL
+  # Nginx reverse proxy with SSL and frontend static files
   nginx:
-    image: nginx:alpine
+    build: .
     ports:
       - "80:80"
       - "443:443"
@@ -22,8 +15,6 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - certbot-etc:/etc/letsencrypt:ro
       - certbot-var:/var/www/certbot
-    depends_on:
-      - frontend
     restart: unless-stopped
     networks:
       - linker-network
