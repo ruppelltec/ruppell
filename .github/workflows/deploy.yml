@@ -1,74 +1,184 @@
-name: Deploy Vite App
+name: Deploy Ruppell
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Force deployment'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
-  build-and-deploy:
+  deploy:
+    name: Deploy to Server
     runs-on: [ruppell-core]
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Vite app
-        run: npm run build
-
-      - name: Build Docker image
-        run: docker build -t vite-app .
-
-      - name: Set compose command
-        id: composecmd
+      - name: Limpiar logs de nginx antes de build
         run: |
-          if command -v docker-compose &> /dev/null; then
-            echo "cmd=docker-compose" >> $GITHUB_OUTPUT
+          sudo rm -rf nginx/logs/* || true
+
+      - name: Setup Docker permissions
+        run: |
+          sudo usermod -aG docker $USER || true
+          sudo chmod 666 /var/run/docker.sock || true
+          docker --version
+          
+      - name: Create environment file
+        run: |
+          echo "VITE_API_BASE_URL=https://${{ vars.DOMAIN }}/api" >> .env
+          echo "VITE_API_VERSION=v1" >> .env
+          echo "VITE_FRONT_USERNAME_API=${{ vars.API_USERNAME }}" >> .env
+          echo "VITE_FRONT_PASSWORD_API=${{ vars.API_PASSWORD }}" >> .env
+          # PORT lo gestionan los servicios en docker-compose, no aquí
+
+      - name: Complete system cleanup before deploy
+        run: |
+          docker-compose down -v --remove-orphans || true
+          
+          docker system prune -f --volumes --all || true
+          
+          npm cache clean --force || true
+          rm -rf node_modules || true
+          
+          rm -rf dist build logs nginx/cache || true
+          
+          df -h
+          docker system df
+
+      - name: Ensure Docker network and volumes exist
+        run: |
+          docker network inspect linker-network >/dev/null 2>&1 || docker network create linker-network
+          docker volume inspect certbot-etc >/dev/null 2>&1 || docker volume create certbot-etc
+          docker volume inspect certbot-var >/dev/null 2>&1 || docker volume create certbot-var
+          
+      - name: Build and start services (sin nginx)
+        env:
+          VITE_SERVER_URL: https://${{ vars.DOMAIN }}
+        run: |
+          docker-compose build --no-cache
+          docker-compose up -d frontend
+
+      - name: Ensure SSL certificate exists (self-signed fallback)
+        env:
+          DOMAIN: ${{ vars.DOMAIN }}
+
+        run: |
+          set -e
+          echo "🔍 Verificando si existe certificado para $DOMAIN..."
+
+          # Usamos SIEMPRE el volumen 'certbot-etc' (external en docker-compose)
+          VOLUME_NAME="certbot-etc"
+
+          # ¿Existe ya el certificado?
+          if docker run --rm -v "$VOLUME_NAME":/etc/letsencrypt alpine \
+              sh -c "test -f /etc/letsencrypt/live/$DOMAIN/fullchain.pem"; then
+            echo "✅ Certificado existente encontrado, no se genera self-signed."
           else
-            echo "cmd=docker compose" >> $GITHUB_OUTPUT
+            echo "⚠️ No se encontró certificado, generando self-signed temporal..."
+            docker run --rm -v "$VOLUME_NAME":/etc/letsencrypt alpine sh -c "
+              apk add --no-cache openssl && \
+              mkdir -p /etc/letsencrypt/live/$DOMAIN && \
+              openssl req -x509 -nodes -days 30 -newkey rsa:2048 \
+                -keyout /etc/letsencrypt/live/$DOMAIN/privkey.pem \
+                -out /etc/letsencrypt/live/$DOMAIN/fullchain.pem \
+                -subj \"/CN=$DOMAIN\"
+            "
+            echo '✅ Certificado self-signed generado y guardado en el volumen certbot-etc.'
           fi
 
-      - name: Deploy Ruppell
+      - name: Start nginx
         run: |
-          ${{ steps.composecmd.outputs.cmd }} down || true
-          docker container prune -f || true
-
-      # --- Clean up unused images ---
-      - name: Clean up Docker images
-        run: |
-          docker image prune -f || true
-
-      # --- Build + start ---
-      - name: Build and start Ruppell app
-        run: |
-          ${{ steps.composecmd.outputs.cmd }} up --build -d
-
-      # --- Wait for app to be ready ---
-      - name: Wait for app to start
-        run: |
-          echo "Waiting for Ruppell app to start..."
+          docker-compose up -d nginx
+          
+          echo "Waiting for nginx to start..."
           sleep 10
-          timeout 60 bash -c 'until ${{ steps.composecmd.outputs.cmd }} ps | grep "healthy\|running"; do sleep 2; done' || true
+          
+          echo "✅ Nginx started (HTTP y HTTPS configurados)"
 
-      # --- Verify deployment ---
-      - name: Verify deployment
+      - name: Verify domain connectivity
         run: |
-          echo "===== Container Status ====="
-          ${{ steps.composecmd.outputs.cmd }} ps
-          echo "===== Health Check ====="
-          curl -f http://localhost:80 || echo "Health check failed"
+          set -e
+          echo '🌐 Verificando conectividad del dominio...'
+          DOMAIN="${{ vars.DOMAIN }}"
+          
+          echo "📡 Verificando DNS para $DOMAIN..."
+          nslookup "$DOMAIN" || echo "⚠️ DNS lookup failed"
+          
+          echo "🔌 Verificando conectividad HTTP..."
+          curl -v --connect-timeout 10 "http://$DOMAIN/.well-known/acme-challenge/test" || echo "⚠️ HTTP connection failed (es normal si el archivo no existe)"
+          
+          echo "🏠 Verificando nginx interno..."
+          docker-compose exec nginx curl -s -o /dev/null -w "%{http_code}\n" http://localhost/api/health || echo "⚠️ Internal nginx check failed"
 
-      # --- Logs on failure ---
-      - name: Show service logs if failed
+      - name: Obtener/renovar certificado SSL con Certbot (webroot)
+        env:
+          CERTBOT_EMAIL: bscantor3@gmail.com
+          DOMAIN: ${{ vars.DOMAIN }}
+
+        run: |
+          echo "🔐 Intentando obtener/renovar certificado SSL (webroot)..."
+          
+          set +e
+          docker-compose run --rm certbot certonly \
+            --webroot -w /var/www/certbot \
+            --email "$CERTBOT_EMAIL" \
+            --agree-tos --no-eff-email \
+            -d "$DOMAIN"
+          CERTBOT_EXIT=$?
+          set -e
+          
+          if [ "$CERTBOT_EXIT" -eq 0 ]; then
+            echo "✅ Certbot completado correctamente, recargando nginx..."
+            docker-compose exec nginx nginx -s reload || true
+          else
+            echo "⚠️ Certbot falló (rate limit o problema de HTTP/DNS)."
+            echo "   Se mantiene el certificado actual (self-signed o el último válido)."
+          fi
+
+      - name: SSL Setup Troubleshooting
         if: failure()
         run: |
-          echo "===== Containers ====="
-          ${{ steps.composecmd.outputs.cmd }} ps
-          echo "===== App Logs ====="
-          ${{ steps.composecmd.outputs.cmd }} logs --tail=100
+          echo "🔧 Troubleshooting SSL setup..."
+          echo "=== Container Status ==="
+          docker-compose ps
+          echo "=== Nginx Logs ==="
+          docker-compose logs nginx --tail=50 || true
+          echo "=== Certbot Logs ==="
+          docker-compose logs certbot --tail=50 || echo "No certbot logs found"
+          echo "=== Network Status ==="
+          docker network ls
+          docker network inspect linker-network || echo "Network not found"
+          
+          echo "💡 SSL setup failed, pero el despliegue puede seguir con el certificado actual."
+
+      - name: Verify deployment
+        run: |
+          echo "✅ Verificando contenedores en ejecución..."
+          docker-compose ps
+          
+      - name: Post-deploy cleanup
+        if: always()
+        run: |
+          docker system prune -f || true
+          npm cache clean --force || true
+          
+          echo "=== Final Disk Usage ==="
+          df -h
+          echo "=== Final Docker Usage ==="
+          docker system df
+
+      - name: Show service logs
+        if: failure()
+        run: |
+          echo "=== Container Status ==="
+          docker-compose ps
+          echo "=== Service Logs (últimos 50 logs por servicio) ==="
+          docker-compose logs --tail=50 || true
