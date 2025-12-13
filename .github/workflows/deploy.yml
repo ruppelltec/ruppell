@@ -25,9 +25,18 @@ jobs:
       - name: Build Docker image
         run: docker build -t vite-app .
 
+      - name: Set compose command
+        id: composecmd
+        run: |
+          if command -v docker-compose &> /dev/null; then
+            echo "cmd=docker-compose" >> $GITHUB_OUTPUT
+          else
+            echo "cmd=docker compose" >> $GITHUB_OUTPUT
+          fi
+
       - name: Deploy Ruppell
         run: |
-          docker-compose down || true
+          ${{ steps.composecmd.outputs.cmd }} down || true
           docker container prune -f || true
 
       # --- Clean up unused images ---
@@ -38,20 +47,20 @@ jobs:
       # --- Build + start ---
       - name: Build and start Ruppell app
         run: |
-          docker-compose up --build -d
+          ${{ steps.composecmd.outputs.cmd }} up --build -d
 
       # --- Wait for app to be ready ---
       - name: Wait for app to start
         run: |
           echo "Waiting for Ruppell app to start..."
           sleep 10
-          timeout 60 bash -c 'until docker-compose ps | grep "healthy\|running"; do sleep 2; done' || true
+          timeout 60 bash -c 'until ${{ steps.composecmd.outputs.cmd }} ps | grep "healthy\|running"; do sleep 2; done' || true
 
       # --- Verify deployment ---
       - name: Verify deployment
         run: |
           echo "===== Container Status ====="
-          docker-compose ps
+          ${{ steps.composecmd.outputs.cmd }} ps
           echo "===== Health Check ====="
           curl -f http://localhost:80 || echo "Health check failed"
 
@@ -60,6 +69,6 @@ jobs:
         if: failure()
         run: |
           echo "===== Containers ====="
-          docker-compose ps
+          ${{ steps.composecmd.outputs.cmd }} ps
           echo "===== App Logs ====="
-          docker-compose logs --tail=100
+          ${{ steps.composecmd.outputs.cmd }} logs --tail=100
