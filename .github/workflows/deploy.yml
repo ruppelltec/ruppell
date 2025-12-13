@@ -25,7 +25,7 @@ jobs:
       - name: Build Docker image
         run: docker build -t vite-app .
 
-      # Aquí puedes agregar un paso para subir la imagen a un registry o desplegarla
-      # Ejemplo: docker push, deploy a server, etc.
-      # - name: Push Docker image
-      #   run: docker push <your-registry>/vite-app
+      - name: Desplegar con Docker Compose
+        run: |
+          docker compose down || true
+          docker compose up --build -d
