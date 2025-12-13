@@ -9,7 +9,7 @@ RUN npm run build || yarn build
 # Servir estáticos con nginx con HTTPS support
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
-COPY ./nginx-ssl.conf /etc/nginx/nginx.conf
+COPY ./nginx.conf /etc/nginx/nginx.conf
 # Create directories for SSL certificates
 RUN mkdir -p /var/www/certbot
 EXPOSE 80 443
