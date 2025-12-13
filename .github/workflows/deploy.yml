@@ -73,13 +73,13 @@ jobs:
           set -e
           echo "🔍 Verificando si existe certificado para $DOMAIN..."
 
-          # Usamos SIEMPRE el volumen 'certbot-etc' (external en docker-compose)
-          VOLUME_NAME="certbot-etc"
+          # Usamos SIEMPRE el volumen 'certbot-etc'
+          VOLUME_NAME="certbot_certbot-etc"
 
           # ¿Existe ya el certificado?
           if docker run --rm -v "$VOLUME_NAME":/etc/letsencrypt alpine \
-              sh -c "test -f /etc/letsencrypt/live/$DOMAIN/fullchain.pem"; then
-            echo "✅ Certificado existente encontrado, no se genera self-signed."
+              sh -c "test -f /etc/letsencrypt/live/$DOMAIN/fullchain.pem" 2>/dev/null; then
+            echo "✅ Certificado existente encontrado."
           else
             echo "⚠️ No se encontró certificado, generando self-signed temporal..."
             docker run --rm -v "$VOLUME_NAME":/etc/letsencrypt alpine sh -c "
@@ -92,6 +92,14 @@ jobs:
             "
             echo '✅ Certificado self-signed generado y guardado en el volumen certbot-etc.'
           fi
+
+      - name: Restart nginx to load certificates
+        run: |
+          echo "🔄 Reiniciando nginx para cargar certificados..."
+          docker-compose restart nginx
+          echo "Esperando a que nginx inicie..."
+          sleep 10
+          echo "✅ Nginx reiniciado"
 
       - name: Verify domain connectivity
         run: |
