@@ -6,12 +6,12 @@ import { Category } from "../../types";
 
 interface AnimatedSearchInputProps {
   categories: Category[];
-  placeholder?: string;
+  // placeholder?: string;
 }
 
 export const AnimatedSearchInput = ({ 
   categories, 
-  placeholder = "Busca tu curso ideal..." 
+  // placeholder = "Busca tu curso ideal..." 
 }: AnimatedSearchInputProps) => {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);

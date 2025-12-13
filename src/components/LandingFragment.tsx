@@ -6,7 +6,7 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 import { useEffect, useMemo, useState } from "react";
 import {
-  type Container,
+  // type Container,
   type ISourceOptions,
   MoveDirection,
   OutMode,
@@ -30,9 +30,7 @@ export const LandingFragment = () => {
     });
   }, []);
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    // Particles loaded successfully
-  };
+  // ...existing code...
 
   const scrollToNextSection = () => {
     const nextSection =
@@ -104,7 +102,7 @@ export const LandingFragment = () => {
       >
         <Particles
           id="tsparticles"
-          particlesLoaded={particlesLoaded}
+          // particlesLoaded={particlesLoaded}
           options={options}
         />
 

@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar } from "swiper/modules";
+
 import { Category } from "../../types";
 import CourseCard from "./CourseCard";
 
@@ -62,7 +62,7 @@ const SenseLeftItem = ({ category }: { category: Category }) => (
       >
         {category.courses.map((course, index) => (
           <SwiperSlide key={course.id} virtualIndex={index}>
-            <CourseCard course={course} index={index} />
+            <CourseCard course={course} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -119,7 +119,7 @@ const SenseRightItem = ({ category }: { category: Category }) => (
       >
         {category.courses.map((course, index) => (
           <SwiperSlide key={course.id} virtualIndex={index}>
-            <CourseCard course={course} index={index} />
+            <CourseCard course={course} />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -5,7 +5,7 @@ export const useImagePreloader = (imageSources: string[]) => {
   const [loadingProgress, setLoadingProgress] = useState(0);
 
   const preloadImage = useCallback((src: string): Promise<void> => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const img = new Image();
       img.onload = () => {
         setLoadedImages(prev => new Set([...prev, src]));

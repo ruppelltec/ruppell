@@ -5,10 +5,10 @@ import SmartImage from "../SmartImage";
 
 interface CourseCardProps {
   course: Course;
-  index: number;
+  // index: number;
 }
 
-export const CourseCard = ({ course, index }: CourseCardProps) => {
+export const CourseCard = ({ course }: CourseCardProps) => {
   return (
     <div className="w-[280px] h-auto pb-3 mb-5 bg-white shadow-lg rounded-2xl flex-shrink-0 flex flex-col justify-center items-center mx-auto">
       <SmartImage

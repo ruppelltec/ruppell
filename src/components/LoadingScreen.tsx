@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export const LoadingScreen = () => {
   const [progress, setProgress] = useState(0);
-  const [minTimeElapsed, setMinTimeElapsed] = useState(false);
+
 
   useEffect(() => {
     // Simulate loading progress from 0% to 100% in increments of 10% over 2 seconds
@@ -22,13 +22,10 @@ export const LoadingScreen = () => {
     }, interval);
     
     // Ensure minimum 2 seconds loading time
-    const timer = setTimeout(() => {
-      setMinTimeElapsed(true);
-    }, 2000);
+
 
     return () => {
       clearInterval(progressInterval);
-      clearTimeout(timer);
     };
   }, []);
 
