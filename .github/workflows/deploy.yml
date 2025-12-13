@@ -26,6 +26,7 @@ jobs:
         run: docker build -t vite-app .
 
       - name: Desplegar con Docker Compose
+        working-directory: ${{ github.workspace }}
         run: |
           docker compose down || true
           docker compose up --build -d
