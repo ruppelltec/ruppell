@@ -5,7 +5,7 @@ import circleBackground from "./../assets/cirlce-background.png";
 
 export const AboutFragment = () => {
   return (
-    <section className="h-full w-[100vw] bg-white text-black relative  md:max-h-[950px]">
+    <section id="about-fragment" className="h-full w-[100vw] bg-white text-black relative  md:max-h-[950px]">
       <div className="flex flex-col md:flex-row  w-full z-4">
         <div
           id="second-section-about"
@@ -47,7 +47,7 @@ export const AboutFragment = () => {
           </div>
 
           <div className="flex justify-center mt-10 absolute w-full md:w-1/2 bottom-0 mb-20 ">
-            <a className="bg-golden-yellow-500 text-white p-3 text-lg rounded-lg font-bold px-10 z-50" href="/">
+            <a className="bg-golden-yellow-600 text-white p-3 text-lg rounded-lg font-bold px-10 z-50 hover:bg-golden-yellow-500 transition-colors" href="/">
               Comienza ahora
             </a>
           </div>

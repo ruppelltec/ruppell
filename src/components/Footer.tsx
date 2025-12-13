@@ -9,16 +9,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Footer = () => {
   return (
-    <footer className="z-100 absolute py-10 bg-black text-white p-5 flex flex-col md:flex-row items-center min-w-[300px] w-[100vw] justify-around shadow-xl md:space-x-20">
-      <NavbarLogo className="max-w-[200px] max-h-[50px]"/>
-      <hr className="w-[250px] text-white border-1 my-5 md:hidden" />
-      <div className="text-golden-yellow-500 w-[200px] flex justify-between">
-        <FontAwesomeIcon className="text-3xl" icon={faInstagram} />
-        <FontAwesomeIcon className="text-3xl" icon={faTiktok} />
-        <FontAwesomeIcon className="text-3xl" icon={faFacebook} />
-        <FontAwesomeIcon className="text-3xl" icon={faYoutube} />
+    <footer className="z-100 absolute py-10 bg-black text-white flex flex-col md:flex-row items-center min-w-[300px] w-[100vw] justify-around shadow-xl">
+      <div className="flex justify-center w-[300px]">
+        <NavbarLogo className="w-[200px] max-h-[50px]" />
       </div>
-      <p className="text-xl mt-5 md:mt-0 text-center text-golden-yellow-500">© Ruppell Copyright 2025</p>
+      <hr className="w-[250px] text-white border-1 my-5 md:hidden" />
+      <div className="text-golden-yellow-500 w-[300px] flex justify-around">
+        <FontAwesomeIcon className="text-4xl" icon={faInstagram} />
+        <FontAwesomeIcon className="text-4xl" icon={faTiktok} />
+        <FontAwesomeIcon className="text-4xl" icon={faFacebook} />
+        <FontAwesomeIcon className="text-4xl" icon={faYoutube} />
+      </div>
+      <p className="text-xl mt-5 md:mt-0 text-center text-golden-yellow-500 w-[300px]">
+        © Ruppell Copyright 2025
+      </p>
     </footer>
   );
 };

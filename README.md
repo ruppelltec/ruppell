@@ -1,54 +1,358 @@
-# React + TypeScript + Vite
+Pendientes
+ 1. Confirmar contraseña y correo para generar tokens como invitado (Landing page)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ 2. Definir API con versionamiento, ejemplo: http://localhost:3000/v1/...
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
+ 3. Definir route http://localhost:3000/v1/nests/ Traer nidos (categorias) de cursos en el sistema - GET output sample:
+  [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000", //Identificador único del nido (categoría)
+      "title": "Tecnología y Programación", //Título del nido (categoría)
+      "description": "Cursos para aprender sobre tecnología y programación." //Esta debe ser una descripción corta, no más de 100 caracteres.
     },
-  },
-})
-```
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "title": "Negocios y Emprendimiento",
+      "description": "Cursos diseñados para ayudarte a crecer y desarrollarte en el mundo de los negocios y el emprendimiento."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "title": "Diseño y Creatividad",
+      "description": "Desarrolla tus habilidades en diseño y creatividad con estos cursos."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "title": "Ciencia y Matemáticas",
+      "description": "Explora el mundo de la ciencia y las matemáticas con estos cursos."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "title": "Idiomas y Comunicación",
+      "description": "Cursos para aprender nuevos idiomas y mejorar tus habilidades de comunicación."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440005",
+      "title": "Desarrollo Personal",
+      "description": "Cursos para mejorar tu desarrollo personal y crecimiento."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440006",
+      "title": "Arte y Música",
+      "description": "Desarrolla tus habilidades artísticas y musicales con estos cursos."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440007",
+      "title": "Educación y Pedagogía",
+      "description": "Cursos para mejorar tus habilidades en educación y pedagogía."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440008",
+      "title": "Salud y Medicina",
+      "description": "Cursos para aprender sobre salud y medicina."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440009",
+      "title": "Ingeniería y Arquitectura",
+      "description": "Explora el mundo de la ingeniería y la arquitectura con estos cursos."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440010",
+      "title": "Comedia y Humor",
+      "description": "Cursos para aprender sobre comedia y humor."
+    }
+  ]
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+ 4. Definir route http://localhost:3000/v1/categories/ Traer categorías con listado de cursos - GET output sample: 
+  [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655420000", //Identificador único de la categoría
+      "title": "Desarrollo Personal", //Título de la categoría
+      "description": "Las habilidades blandas son clave para el éxito personal y profesional. Esta categoría de cursos te ayudarán a mejorar la comunicación, el liderazgo, la inteligencia emocional y la resolución de problemas.", //Descripción larga
+      "courses": [ //Listado de cursos dentro de la categoría
+        {
+          "id": "550e8400-e29b-41d4-a716-446655440000", //Identificador único del curso
+          "title": "Comunicación Eficaz para el Éxito Profesional", //Título del curso
+          "popularity": 4.5, //Popularidad del curso (de 1 a 5)
+          "expert": "Samuel Allanos", //Nombre del experto que imparte el curso (usuario responsable del curso)
+          "image": "https://picsum.photos/200/185?random=1" //URL de la imagen del curso
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446655410000",
+          "title": "Curso de Carpintería",
+          "popularity": 4.3,
+          "expert": "Bob Vila",
+          "image": "https://picsum.photos/200/185?random=2"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446652440000",
+          "title": "Curso de Jardinería",
+          "popularity": 4.4,
+          "expert": "Alan Titchmarsh",
+          "image": "https://picsum.photos/200/185?random=3"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446645440000",
+          "title": "Curso de Plomería",
+          "popularity": 4.2,
+          "expert": "Richard Trethewey",
+          "image": "https://picsum.photos/200/185?random=4"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446055440000",
+          "title": "Curso de Electricidad",
+          "popularity": 4.5,
+          "expert": "Mike Holt",
+          "image": "https://picsum.photos/200/185?random=5"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-443655440000",
+          "title": "Curso de Mecánica Automotriz",
+          "popularity": 4.3,
+          "expert": "Scotty Kilmer",
+          "image": "https://picsum.photos/200/185?random=6"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-4466575440000",
+          "title": "Curso de Soldadura",
+          "popularity": 4.4,
+          "expert": "Weld.com",
+          "image": "https://picsum.photos/200/185?random=7"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446655340000",
+          "title": "Curso de Albañilería",
+          "popularity": 4.3,
+          "expert": "This Old House",
+          "image": "https://picsum.photos/200/185?random=8"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446658440000",
+          "title": "Curso de Cerrajería",
+          "popularity": 4.2,
+          "expert": "Locksmith Training",
+          "image": "https://picsum.photos/200/185?random=9"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446655450000",
+          "title": "Curso de Pintura y Decoración",
+          "popularity": 4.5,
+          "expert": "Home Depot",
+          "image": "https://picsum.photos/200/185?random=10"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446655443000",
+          "title": "Curso de Reparación de Electrodomésticos",
+          "popularity": 4.3,
+          "expert": "Repair Clinic",
+          "image": "https://picsum.photos/200/185?random=11"
+        },
+        {
+          "id": "550e8400-e29b-41d4-a716-446655449000",
+          "title": "Curso de Fontanería",
+          "popularity": 4.4,
+          "expert": "Plumbing Academy",
+          "image": "https://picsum.photos/200/185?random=12"
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655420001",
+      "title": "Comedia y Humor",
+      "description": "La comedia es más que hacer reír, es una forma de conectar, liberar tensiones y transformar lo cotidiano en algo extraordinario. Te enseñamos desde los principios del humor hasta las técnicas avanzadas de improvisación, escritura y actuación.",
+      "courses": [
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440001",
+          "title": "Curso de Stand-Up Comedy",
+          "popularity": 4.6,
+          "expert": "Jerry Seinfeld",
+          "image": "https://picsum.photos/200/185?random=13"
+        },
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440002",
+          "title": "Curso de Improvisación",
+          "popularity": 4.7,
+          "expert": "Tina Fey",
+          "image": "https://picsum.photos/200/185?random=14"
+        },
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440003",
+          "title": "Curso de Guion de Comedia",
+          "popularity": 4.5,
+          "expert": "Larry David",
+          "image": "https://picsum.photos/200/185?random=15"
+        },
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440004",
+          "title": "Curso de Comedia Física",
+          "popularity": 4.4,
+          "expert": "Jim Carrey",
+          "image": "https://picsum.photos/200/185?random=16"
+        },
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440005",
+          "title": "Curso de Monólogos",
+          "popularity": 4.6,
+          "expert": "Ellen DeGeneres",
+          "image": "https://picsum.photos/200/185?random=17"
+        },
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440006",
+          "title": "Curso de Comedia Satírica",
+          "popularity": 4.5,
+          "expert": "John Oliver",
+          "image": "https://picsum.photos/200/185?random=18"
+        },
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440007",
+          "title": "Curso de Comedia Musical",
+          "popularity": 4.3,
+          "expert": "Bo Burnham",
+          "image": "https://picsum.photos/200/185?random=19"
+        },
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440008",
+          "title": "Curso de Comedia de Sketch",
+          "popularity": 4.4,
+          "expert": "Key & Peele",
+          "image": "https://picsum.photos/200/185?random=20"
+        },
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440009",
+          "title": "Curso de Comedia de Situación",
+          "popularity": 4.5,
+          "expert": "Chuck Lorre",
+          "image": "https://picsum.photos/200/185?random=21"
+        },
+        {
+          "id": "660e8400-e29b-41d4-a716-446655440010",
+          "title": "Curso de Comedia de Observación",
+          "popularity": 4.6,
+          "expert": "George Carlin",
+          "image": "https://picsum.photos/200/185?random=22"
+        }
+      ]
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655420002",
+      "title": "Tecnología y programación",
+      "description": "Aprende a crear soluciones tecnológicas, resuelve problemas complejos y adquiere habilidades que están en alta demanda en el mercado laboral. ¡Empieza a programar hoy y da el primer paso hacia un futuro lleno de posibilidades!",
+      "courses": [
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440011",
+          "title": "Curso de Python",
+          "popularity": 4.8,
+          "expert": "Guido van Rossum",
+          "image": "https://picsum.photos/200/185?random=23"
+        },
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440012",
+          "title": "Curso de JavaScript",
+          "popularity": 4.7,
+          "expert": "Brendan Eich",
+          "image": "https://picsum.photos/200/185?random=24"
+        },
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440013",
+          "title": "Curso de Java",
+          "popularity": 4.6,
+          "expert": "James Gosling",
+          "image": "https://picsum.photos/200/185?random=25"
+        },
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440014",
+          "title": "Curso de C++",
+          "popularity": 4.5,
+          "expert": "Bjarne Stroustrup",
+          "image": "https://picsum.photos/200/185?random=26"
+        },
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440015",
+          "title": "Curso de C#",
+          "popularity": 4.6,
+          "expert": "Anders Hejlsberg",
+          "image": "https://picsum.photos/200/185?random=27"
+        },
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440016",
+          "title": "Curso de Ruby",
+          "popularity": 4.4,
+          "expert": "Yukihiro Matsumoto",
+          "image": "https://picsum.photos/200/185?random=28"
+        },
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440017",
+          "title": "Curso de PHP",
+          "popularity": 4.3,
+          "expert": "Rasmus Lerdorf",
+          "image": "https://picsum.photos/200/185?random=29"
+        },
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440018",
+          "title": "Curso de Swift",
+          "popularity": 4.5,
+          "expert": "Chris Lattner",
+          "image": "https://picsum.photos/200/185?random=30"
+        },
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440019",
+          "title": "Curso de Go",
+          "popularity": 4.6,
+          "expert": "Robert Griesemer",
+          "image": "https://picsum.photos/200/185?random=31"
+        },
+        {
+          "id": "770e8400-e29b-41d4-a716-446655440020",
+          "title": "Curso de Kotlin",
+          "popularity": 4.7,
+          "expert": "JetBrains",
+          "image": "https://picsum.photos/200/185?random=32"
+        }
+      ]
+    }
+  ]
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+  5. Definir route http://localhost:3000/v1/experts/ Traer expertos - GET output sample:
+  [
+    {
+      "id": "550e8400-e29b-41d4-a716-443655440000", //Identificador único del experto
+      "name": "Sebastián Torres", //Nombre del experto
+      "profession": "Comediante", //Profesión del experto
+      "image": "https://picsum.photos/300/400?random=33" //URL de la imagen del experto
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-443655440001",
+      "name": "Valeria Mendoza",
+      "profession": "Directora cinematográfica",
+      "image": "https://picsum.photos/300/400?random=34"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-443655440002",
+      "name": "Carlos Pérez",
+      "profession": "Ingeniero de software",
+      "image": "https://picsum.photos/300/400?random=35"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-443655440003",
+      "name": "María Rodríguez",
+      "profession": "Diseñadora gráfica",
+      "image": "https://picsum.photos/300/400?random=36"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-443655440004",
+      "name": "Javier López",
+      "profession": "Músico",
+      "image": "https://picsum.photos/300/400?random=38"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-443655440005",
+      "name": "Laura Gómez",
+      "profession": "Psicóloga",
+      "image": "https://picsum.photos/300/400?random=39"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-443655440006",
+      "name": "Juan Martínez",
+      "profession": "Ingeniero civil",
+      "image": "https://picsum.photos/300/400?random=40"
+    }
+  ]

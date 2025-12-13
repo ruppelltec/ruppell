@@ -1,8 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Scrollbar } from "swiper/modules";
 import { Category } from "../../types";
+import CourseCard from "./CourseCard";
 
 export const CourseList = ({
   category,
@@ -25,63 +24,45 @@ const SenseLeftItem = ({ category }: { category: Category }) => (
       <hr className="mb-4 text-muted-500 relative" />
     </div>
 
-    <div className="md:flex justify-center items-center h-full">
+    <div className="md:flex justify-center items-center min-h-[400px] pb-20 pt-5">
       <div className="mr-5 md:ml-10 md:max-w-[450px] lg:min-w-[500px]">
         <p className="text-md mb-4 text-deep-black-500 pt-5 leading-8">
           {category.description}
         </p>
         <div className="flex justify-center my-10 w-full">
-          <a className="bg-orange-earth-500 text-white p-3 text-md rounded-full shadow-lg font-bold px-10" href="/">
+          <a
+            className="bg-orange-earth-500 text-white p-3 text-md rounded-full shadow-lg font-bold px-10 hover:bg-orange-earth-400 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-earth-500 focus:ring-opacity-50"
+            href="/"
+          >
             Conoce más
           </a>
         </div>
       </div>
       <Swiper
-        autoplay={{
-          delay: 0,
-        }}
-        className="h-full"
+        className="swiper-course-cards w-[500px] md:w-[600px] lg:w-[1500px] h-[400px]"
         direction="horizontal"
-        loop
-        modules={[Autoplay]}
-        slidesPerView="auto"
-        spaceBetween={24}
-        speed={8000}
+        loop={false}
+        slidesPerView={1}
+        spaceBetween={60}
+        scrollbar={{ draggable: true }}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+          1280: {
+            slidesPerView: 4,
+          },
+        }}
       >
         {category.courses.map((course, index) => (
-          <SwiperSlide
-            className="max-w-[230px] md:max-w-[270px] lg:max-w-[300px] h-full pb-5 mb-5 bg-white shadow-lg rounded-2xl"
-            key={course.id}
-            virtualIndex={index}
-          >
-            <img
-              src={`https://picsum.photos/200/185?random=${index}}]`}
-              alt={`Card 1}`}
-              className="w-full h-[185px] object-cover rounded-t-xl"
-            />
-            <div className="pl-4 pt-5 h-full">
-              <div className="min-h-[60px] flex items-center">
-                <h3 className="text-md text-deep-black-500 font-bold mb-2">
-                  {course.title}
-                </h3>
-              </div>
-              <hr className="mb-4 text-muted-500 relative" />
-              <div className="flex items-center justify-stretch space-x-2">
-                <div>
-                  <span className="text-orange-earth-500">
-                    <FontAwesomeIcon className="text-xl" icon={faStar} />
-                  </span>
-                  <span className="ml-1 text-orange-earth-500 font-medium">
-                    {course.popularity}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-deep-black-500 text-sm text-end">
-                    {course.creator}
-                  </span>
-                </div>
-              </div>
-            </div>
+          <SwiperSlide key={course.id} virtualIndex={index}>
+            <CourseCard course={course} index={index} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -100,64 +81,45 @@ const SenseRightItem = ({ category }: { category: Category }) => (
       <hr className="mb-4 text-muted-500 relative left-4" />
     </div>
 
-    <div className="md:flex justify-center items-center h-full">
+    <div className="md:flex justify-center items-center min-h-[400px] pb-20 pt-5">
       <div className="mr-5 md:ml-10 md:max-w-[450px] lg:min-w-[500px] md:order-2">
         <p className="text-md mb-4 text-deep-black-500 pt-5 leading-8">
           {category.description}
         </p>
         <div className="flex justify-center my-10 w-full">
-          <a className="bg-orange-earth-500 text-white p-3 text-md rounded-full shadow-lg font-bold px-10" href="/">
+          <a
+            className="bg-orange-earth-500 text-white p-3 text-md rounded-full shadow-lg font-bold px-10 hover:bg-orange-earth-400 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-earth-500 focus:ring-opacity-50"
+            href="/"
+          >
             Conoce más
           </a>
         </div>
       </div>
       <Swiper
-        autoplay={{
-          delay: 0,
-          reverseDirection: true,
-        }}
-        className="h-full"
+        className="swiper-course-cards w-[500px] md:w-[600px] lg:w-[1500px] h-[400px]"
         direction="horizontal"
-        loop
-        modules={[Autoplay]}
-        slidesPerView="auto"
-        spaceBetween={24}
-        speed={8000}
+        loop={false}
+        slidesPerView={1}
+        spaceBetween={60}
+        scrollbar={{ draggable: true }}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+          1280: {
+            slidesPerView: 4,
+          },
+        }}
       >
         {category.courses.map((course, index) => (
-          <SwiperSlide
-            className="max-w-[230px] md:max-w-[270px] lg:max-w-[300px] h-full pb-5 mb-5 bg-white shadow-lg rounded-2xl"
-            key={course.id}
-            virtualIndex={index}
-          >
-            <img
-              src={`https://picsum.photos/200/185?random=${index}}]`}
-              alt={`Card 1}`}
-              className="w-full h-[185px] object-cover rounded-t-xl"
-            />
-            <div className="pl-4 pt-5 h-full">
-              <div className="min-h-[60px] flex items-center">
-                <h3 className="text-md text-deep-black-500 font-bold mb-2">
-                  {course.title}
-                </h3>
-              </div>
-              <hr className="mb-4 text-muted-500 relative" />
-              <div className="flex items-center justify-stretch space-x-2">
-                <div>
-                  <span className="text-orange-earth-500">
-                    <FontAwesomeIcon className="text-xl" icon={faStar} />
-                  </span>
-                  <span className="ml-1 text-orange-earth-500 font-medium">
-                    {course.popularity}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-deep-black-500 text-sm text-end">
-                    {course.creator}
-                  </span>
-                </div>
-              </div>
-            </div>
+          <SwiperSlide key={course.id} virtualIndex={index}>
+            <CourseCard course={course} index={index} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -166,3 +128,4 @@ const SenseRightItem = ({ category }: { category: Category }) => (
 );
 
 export default CourseList;
+

@@ -82,7 +82,7 @@ export const OwnModule = () => {
               </div>
 
               <div className="flex justify-center py-5 w-full  lg:max-w-[800px]">
-                <a className="bg-golden-yellow-500 text-white p-3 text-lg rounded-2xl font-bold px-10" href="/">
+                <a className="bg-golden-yellow-600 text-white p-3 text-lg rounded-2xl font-bold px-10 hover:bg-golden-yellow-500 transition-colors" href="/">
                   Comienza ahora
                 </a>
               </div>

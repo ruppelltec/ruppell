@@ -2,8 +2,13 @@
 
 @theme {
   --color-golden-yellow-500: #e7bb34;
+  --color-golden-yellow-400: #EAC246;
+  --color-golden-yellow-600: #d4a023;
+
   --color-secondary-yellow-500: #efc034;
   --color-orange-earth-500: #b45b38;
+  --color-orange-earth-400: #7B412B;
+
   --color-soft-brown-500: #d3bba3;
   --color-beige-sand-500: #efede2;
   --color-deep-black-500: #282829;
@@ -11,30 +16,12 @@
   --color-muted-500: #c9c9c9;
 }
 
+/* Utility Classes */
 .bg-custom-gray {
   background-color: #282829;
   background-image: url("./assets/backgound_gray.png");
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-body {
-  width: 100vw !important;
-  min-width: 300px !important;
-}
-
-body,
-section {
-  overflow-x: hidden !important;
-}
-
-section {
-  overflow-y: hidden;
-}
-
-section,
-header {
-  min-width: 300px !important;
 }
 
 .bg-gradient {
@@ -46,9 +33,30 @@ header {
   ) !important;
 }
 
+/* Base styles */
+body {
+  width: 100vw;
+  min-width: 300px;
+}
+
+body,
+section {
+  overflow-x: hidden;
+}
+
+section {
+  overflow-y: hidden;
+}
+
+section,
+header {
+  min-width: 300px;
+}
+
+/* Swiper customizations */
 #landing-fragment .swiper-slide {
-  width: 250px !important;
-  height: 200px !important;
+  width: 250px;
+  height: 200px;
 }
 
 #landing-fragment .swiper-slide img {
@@ -58,8 +66,13 @@ header {
   object-fit: cover;
 }
 
+.swiper-transition .swiper-wrapper {
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
 
-
+/* Ruppell band background */
 #ruppell-band {
   background-image: url("./assets/ruppell-band.png");
   background-position: center;
@@ -67,97 +80,164 @@ header {
   background-size: contain;
 }
 
-@media (max-width: 299px) {
-  #logo-silver-animation {
-    transform: rotate(0deg) !important;
-  }
-}
+/* Responsive Design - Simplified Breakpoints */
 
-@media (min-width: 400px) {
+/* Mobile First Approach */
+@media (min-width: 640px) {
   #landing-fragment .swiper-slide {
-    width: 400px !important;
-    height: 200px !important;
+    width: 400px;
+    height: 200px;
+  }
+  
+  #landing-fragment .swiper-slide img {
+    height: 180px;
   }
 }
 
 @media (max-width: 768px) {
   #circle-background {
-    left: -200px !important;
+    left: -200px;
   }
 
   #circle-background img {
-    min-width: 580px !important;
+    min-width: 580px;
+  }
+  
+  .margin-dicrease-1 {
+    top: 340px;
+    padding-right: 90px;
+    width: 600px;
+  }
+  
+  #bird-nest {
+    bottom: -270px;
   }
 }
 
-@media (min-width: 400px) and (max-width: 768px) {
-  #logo-silver {
-    max-width: 400px !important;
+@media (min-width: 768px) and (max-width: 1024px) {
+  #circle-background-module {
+    display: block;
   }
+
+  .text-custom-size-1 {
+    font-size: 3.75rem;
+    line-height: 4rem;
+  }
+  
+  #second-section-about {
+    min-height: 1000px;
+  }
+
+  #text-section-1 {
+    top: 320px;
+  }
+
+  #text-section-2 {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #circle-background {
+    top: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #logo-silver {
+    max-width: 600px;
+  }
+  
   #bird-nest {
-    bottom: -270px !important;
+    bottom: -200px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1170px) {
+  .margin-dicrease-1 {
+    padding-right: 200px;
+    top: 300px;
   }
 }
 
 @media (max-width: 600px) {
   #logo-silver-section-2 {
-    right: 10px !important;
+    right: 10px;
   }
 }
 
-@media (min-width: 600px) and (max-width: 767px) {
-  #circle-background-module {
-    display: block !important;
-  }
-
-  .text-custom-size-1 {
-    font-size: 3.75rem !important;
-    line-height: 4rem !important;
+/* Animation fix for very small screens */
+@media (max-width: 299px) {
+  #logo-silver-animation {
+    transform: rotate(0deg);
   }
 }
 
-@media (min-width: 455px) and (max-width: 768px) {
-  #second-section-about {
-    min-height: 1000px !important;
-  }
-
-  #text-section-1 {
-    top: 320px !important;
-  }
-
-  #text-section-2 {
-    text-align: center;
-    margin: 0 auto !important;
-  }
-
-  #circle-background {
-    top: 180px !important;
+/* Logo positioning for medium screens */
+@media (min-width: 400px) and (max-width: 768px) {
+  #logo-silver {
+    max-width: 400px;
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1160px) {
-  .margin-dicrease-1 {
-    padding-right: 200px;
-    top: 300px !important;
-  }
+/* Course Cards Swiper Improvements */
+.swiper-course-cards {
+  padding: 20px 0;
+  height: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (min-width: 1024px) and (max-width: 1170px) {
-  #bird-nest {
-    bottom: -200px !important;
-  }
+.swiper-course-cards .swiper-slide {
+  width: 280px !important;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-@media (min-width: 1071px) {
-  #bird-nest {
-    bottom: -200px !important;
-  }
+.swiper-course-cards .swiper-wrapper {
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .margin-dicrease-1 {
-    top: 340px !important;
-    padding-right: 90px;
-    width: 600px !important;
-  }
+/* Scrollbar styles */
+.swiper-course-cards {
+  padding-bottom: 40px !important;
+}
+
+.swiper-course-cards .swiper-scrollbar {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  height: 10px;
+  bottom: 10px !important;
+  top: auto !important;
+  left: 20px !important;
+  right: 20px !important;
+  width: auto !important;
+}
+
+.swiper-course-cards .swiper-scrollbar-drag {
+  background: linear-gradient(135deg, #e7bb34, #d4a023);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(231, 187, 52, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.swiper-course-cards .swiper-scrollbar-drag::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: rgba(231, 187, 52, 0.2);
+  border-radius: 50%;
+  border: 1px solid rgba(231, 187, 52, 0.3);
 }

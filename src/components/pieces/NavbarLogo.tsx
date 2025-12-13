@@ -1,3 +1,5 @@
+import logoGolden from "../../assets/logo_ruppell_golden.png";
+
 interface NavbarLogoProps {
   className?: string;
 }
@@ -5,7 +7,7 @@ interface NavbarLogoProps {
 export const NavbarLogo = ({ className }: NavbarLogoProps) => {
   return (
     <img
-      src="/src/assets/logo_ruppell_golden.png"
+      src={logoGolden}
       className={`object-cover h-full ${className}`}
       alt="Ruppell Logo"
     />

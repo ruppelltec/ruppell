@@ -2,8 +2,6 @@ import ruppellTitle from "./../assets/ruppell_title.png";
 import logoSilver from "./../assets/logo_silver.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 import { useEffect, useMemo, useState } from "react";
@@ -15,22 +13,14 @@ import {
 } from "@tsparticles/engine";
 
 import { loadSlim } from "@tsparticles/slim";
-
 import { motion } from "motion/react";
+import { useCategories } from "../hooks/useCategories";
+import AnimatedSearchInput from "./pieces/AnimatedSearchInput";
 
 export const LandingFragment = () => {
+  const { categories } = useCategories();
   const [init, setInit] = useState(false);
-
-  const slides = Array.from({ length: 10 }).map((el, index) => {
-    return (
-      <div key={index} className="w-full h-full">
-        <img
-          src={`https://picsum.photos/400/200?random=${index}`}
-          alt={`Slide ${index}`}
-        />
-      </div>
-    );
-  });
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -41,7 +31,21 @@ export const LandingFragment = () => {
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
+    // Particles loaded successfully
+  };
+
+  const scrollToNextSection = () => {
+    const nextSection =
+      document.getElementById("about-fragment") ||
+      document.querySelector("section:nth-child(2)");
+    if (nextSection) {
+      const navbarHeight = 80; // Compensar la altura del navbar
+      const offsetTop = nextSection.offsetTop - navbarHeight;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+    }
   };
 
   const options: ISourceOptions = useMemo(
@@ -104,8 +108,8 @@ export const LandingFragment = () => {
           options={options}
         />
 
-        <div className="flex items-center justify-center relative pt-20 w-full min-h-[500px] md:min-h-[750px] ">
-          <div className="absolute z-50">
+        <div className="flex flex-col items-center justify-center relative pt-20 w-full min-h-[500px] md:min-h-[750px]">
+          <div className="absolute z-50 mb-10">
             <motion.div
               id="logo-silver-animation"
               animate={{ rotate: 360 }}
@@ -128,37 +132,54 @@ export const LandingFragment = () => {
               delay: 0.5,
               ease: [0, 0.71, 0.2, 1.01],
             }}
+            className="mt-32 md:mt-0 flex justify-center"
           >
             <img
               src={ruppellTitle}
               alt="Ruppell Title"
-              className="relative z-40 px-5 w-full max-w-[400px] md:max-w-[700px] lg:max-w-[840px] "
+              className="relative z-40 px-5 w-full max-w-[400px] md:max-w-[700px] lg:max-w-[700px]"
             />
           </motion.div>
         </div>
 
-        <Swiper
-          autoplay={{
-            delay: 0,
-          }}
-          direction="horizontal"
-          loop
-          modules={[Autoplay]}
-          slidesPerView="auto"
-          spaceBetween={16}
-          speed={5000}
-        >
-          {slides.map((slideContent, index) => (
-            <SwiperSlide key={slideContent} virtualIndex={index}>
-              <a href="/" className="absolute z-50">
-                {slideContent}
-              </a>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div className="flex justify-center absolute bottom-0 mb-10 mt-5 w-full">
-          <FontAwesomeIcon className="text-3xl text-white" icon={faAngleDown} />
+        <div className="relative z-40 px-5">
+          <AnimatedSearchInput categories={categories} />
         </div>
+
+        <motion.div
+          className="flex justify-center absolute bottom-0 mb-25 w-full cursor-pointer z-50"
+          onClick={() => {
+            scrollToNextSection();
+            // Animación de pulso al hacer clic
+            setClicked(true);
+            setTimeout(() => setClicked(false), 300);
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+              scale: clicked ? [1, 1.3, 1] : 1,
+            }}
+            transition={{
+              y: {
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+              scale: {
+                duration: 0.3,
+                ease: "easeInOut"
+              }
+            }}
+          >
+            <FontAwesomeIcon
+              className="text-3xl text-white hover:text-golden-yellow-400 transition-colors"
+              icon={faAngleDown}
+            />
+          </motion.div>
+        </motion.div>
       </section>
     );
   }
