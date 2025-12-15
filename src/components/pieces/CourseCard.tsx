@@ -10,15 +10,15 @@ interface CourseCardProps {
 
 export const CourseCard = ({ course }: CourseCardProps) => {
   return (
-    <div className="w-[280px] h-auto pb-3 mb-5 bg-white shadow-lg rounded-2xl flex-shrink-0 flex flex-col justify-center items-center mx-auto">
+    <div className="w-[280px] h-auto pb-3 mb-3 bg-white shadow-lg rounded-2xl flex-shrink-0 flex flex-col justify-center items-center mx-auto">
       <SmartImage
         src={course.image}
         alt={`Course: ${course.title}`}
         className="w-full h-[180px] object-cover rounded-t-xl"
       />
       <div className="pl-4 pt-4 w-full">
-        <div className="min-h-[50px] flex items-center justify-center">
-          <h3 className="text-sm text-deep-black-500 font-bold mb-2 text-center">
+        <div className="min-h-[50px] flex items-center justify-start">
+          <h3 className="text-sm text-deep-black-500 font-bold mb-2 text-left">
             {course.title}
           </h3>
         </div>

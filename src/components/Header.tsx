@@ -9,8 +9,9 @@ export const Header = () => {
       </div>
       <div className="flex-1 flex justify-end items-center">
         <a
-          href="https://example.com"
+          href="https://campus.ruppelltec.com"
           target="_blank"
+          rel="noopener noreferrer"
           className="mr-5 px-4 py-2 bg-golden-yellow-600 hover:bg-golden-yellow-500 rounded text-white font-semibold transition"
         >
           Iniciar sesión

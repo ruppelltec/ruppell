@@ -42,7 +42,7 @@ const SenseLeftItem = ({ category }: { category: Category }) => (
         direction="horizontal"
         loop={false}
         slidesPerView={1}
-        spaceBetween={60}
+        spaceBetween={30}
         scrollbar={{ draggable: true }}
         breakpoints={{
           640: {
@@ -99,7 +99,7 @@ const SenseRightItem = ({ category }: { category: Category }) => (
         direction="horizontal"
         loop={false}
         slidesPerView={1}
-        spaceBetween={60}
+        spaceBetween={30}
         scrollbar={{ draggable: true }}
         breakpoints={{
           640: {
