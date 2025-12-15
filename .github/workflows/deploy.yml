@@ -52,6 +52,38 @@ jobs:
           df -h
           docker system df
 
+      - name: Generate SSL certificates BEFORE starting nginx
+        env:
+          DOMAIN: ${{ vars.DOMAIN }}
+        run: |
+          set -e
+          echo "🔐 Generando certificados SSL ANTES de iniciar nginx..."
+
+          # Crear volumen si no existe
+          docker volume create certbot-etc || true
+
+          # Verificar si ya existe certificado
+          if docker run --rm -v "certbot-etc":/etc/letsencrypt alpine \
+              sh -c "test -f /etc/letsencrypt/live/$DOMAIN/fullchain.pem" 2>/dev/null; then
+            echo "✅ Certificado existente encontrado."
+          else
+            echo "📝 Generando certificado self-signed temporal..."
+            docker run --rm -v "certbot-etc":/etc/letsencrypt alpine sh -c "
+              apk add --no-cache openssl && \
+              mkdir -p /etc/letsencrypt/live/$DOMAIN && \
+              openssl req -x509 -nodes -days 30 -newkey rsa:2048 \
+                -keyout /etc/letsencrypt/live/$DOMAIN/privkey.pem \
+                -out /etc/letsencrypt/live/$DOMAIN/fullchain.pem \
+                -subj \"/CN=$DOMAIN\"
+            "
+            echo '✅ Certificado self-signed generado en volumen.'
+          fi
+
+          # Verificar que los certificados existen
+          docker run --rm -v "certbot-etc":/etc/letsencrypt alpine sh -c "
+            ls -la /etc/letsencrypt/live/$DOMAIN/
+          "
+
       - name: Build and start services
         env:
           VITE_SERVER_URL: https://${{ vars.DOMAIN }}
@@ -65,41 +97,30 @@ jobs:
           
           echo "✅ Nginx started with frontend (HTTP y HTTPS configurados)"
 
-      - name: Ensure SSL certificate exists (self-signed fallback)
+      - name: Obtain/renew SSL certificate with Certbot (webroot)
         env:
+          CERTBOT_EMAIL: bscantor3@gmail.com
           DOMAIN: ${{ vars.DOMAIN }}
 
         run: |
+          echo "🔐 Attempting to obtain/renew SSL certificate (webroot)..."
+          
+          set +e
+          docker-compose run --rm certbot certonly \
+            --webroot -w /var/www/certbot \
+            --email "$CERTBOT_EMAIL" \
+            --agree-tos --no-eff-email \
+            -d "$DOMAIN"
+          CERTBOT_EXIT=$?
           set -e
-          echo "🔍 Verificando si existe certificado para $DOMAIN..."
-
-          # Usamos SIEMPRE el volumen 'certbot-etc'
-          VOLUME_NAME="certbot_certbot-etc"
-
-          # ¿Existe ya el certificado?
-          if docker run --rm -v "$VOLUME_NAME":/etc/letsencrypt alpine \
-              sh -c "test -f /etc/letsencrypt/live/$DOMAIN/fullchain.pem" 2>/dev/null; then
-            echo "✅ Certificado existente encontrado."
+          
+          if [ "$CERTBOT_EXIT" -eq 0 ]; then
+            echo "✅ Certbot completed successfully, reloading nginx..."
+            docker-compose exec nginx nginx -s reload || true
           else
-            echo "⚠️ No se encontró certificado, generando self-signed temporal..."
-            docker run --rm -v "$VOLUME_NAME":/etc/letsencrypt alpine sh -c "
-              apk add --no-cache openssl && \
-              mkdir -p /etc/letsencrypt/live/$DOMAIN && \
-              openssl req -x509 -nodes -days 30 -newkey rsa:2048 \
-                -keyout /etc/letsencrypt/live/$DOMAIN/privkey.pem \
-                -out /etc/letsencrypt/live/$DOMAIN/fullchain.pem \
-                -subj \"/CN=$DOMAIN\"
-            "
-            echo '✅ Certificado self-signed generado y guardado en el volumen certbot-etc.'
+            echo "⚠️ Certbot failed (rate limit or HTTP/DNS issue)."
+            echo "   Maintaining current certificate (self-signed or last valid)."
           fi
-
-      - name: Restart nginx to load certificates
-        run: |
-          echo "🔄 Reiniciando nginx para cargar certificados..."
-          docker-compose restart nginx
-          echo "Esperando a que nginx inicie..."
-          sleep 10
-          echo "✅ Nginx reiniciado"
 
       - name: Verify domain connectivity
         run: |
@@ -115,31 +136,6 @@ jobs:
           
           echo "🏠 Verificando nginx interno..."
           docker-compose exec nginx curl -s -o /dev/null -w "%{http_code}\n" http://localhost/api/health || echo "⚠️ Internal nginx check failed"
-
-      - name: Obtener/renovar certificado SSL con Certbot (webroot)
-        env:
-          CERTBOT_EMAIL: bscantor3@gmail.com
-          DOMAIN: ${{ vars.DOMAIN }}
-
-        run: |
-          echo "🔐 Intentando obtener/renovar certificado SSL (webroot)..."
-          
-          set +e
-          docker-compose run --rm certbot certonly \
-            --webroot -w /var/www/certbot \
-            --email "$CERTBOT_EMAIL" \
-            --agree-tos --no-eff-email \
-            -d "$DOMAIN"
-          CERTBOT_EXIT=$?
-          set -e
-          
-          if [ "$CERTBOT_EXIT" -eq 0 ]; then
-            echo "✅ Certbot completado correctamente, recargando nginx..."
-            docker-compose exec nginx nginx -s reload || true
-          else
-            echo "⚠️ Certbot falló (rate limit o problema de HTTP/DNS)."
-            echo "   Se mantiene el certificado actual (self-signed o el último válido)."
-          fi
 
       - name: SSL Setup Troubleshooting
         if: failure()
