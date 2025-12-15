@@ -10,11 +10,14 @@ jobs:
     name: Deploy to Server
     runs-on: [self-hosted]
 
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ github.workspace }}
+
     env:
-      # Ruta al directorio que contiene docker-compose.yml
-      COMPOSE_DIR: ruppell
       DOMAIN: ruppelltec.com
-      CERTBOT_EMAIL: admin@ruppelltec.com
+      CERTBOT_EMAIL: ruppelltec@gmail.com
 
     steps:
       - name: Checkout code
@@ -29,7 +32,6 @@ jobs:
 
       - name: Create environment file
         run: |
-          cd "${COMPOSE_DIR}"
           cat > .env <<EOF
           VITE_SERVER_URL=https://${DOMAIN}
           VITE_API_BASE_URL=https://${DOMAIN}/api
@@ -40,38 +42,28 @@ jobs:
 
       - name: Build images
         run: |
-          cd "${COMPOSE_DIR}"
           docker-compose build --no-cache
 
       - name: Start services
         run: |
-          cd "${COMPOSE_DIR}"
-          # Stop/remove containers only (no volumes) to apply changes cleanly
+          # Baja stack anterior (sin borrar volúmenes) y levanta
           docker-compose down --remove-orphans || true
           docker-compose up -d
 
-      - name: Ensure services are running
+      - name: Verify containers running
         run: |
-          cd "${COMPOSE_DIR}"
           docker-compose ps
-
-          # Espera corta para que nginx termine de iniciar/reiniciar
           sleep 5
-
-          # Si nginx no está "Up", falla
           docker-compose ps | grep -q "nginx" || exit 1
-          docker-compose ps | grep -q "Up" || (docker-compose ps && exit 1)
+          docker-compose ps | grep -q "Up" || exit 1
 
-      - name: Reload nginx after cert attempts (best effort)
+      - name: Reload nginx (best effort)
         run: |
-          cd "${COMPOSE_DIR}"
-          # Si certbot renueva/emite, nginx debe recargar para tomar el nuevo cert
           docker-compose exec -T nginx nginx -s reload || true
 
       - name: Show logs on failure
         if: failure()
         run: |
-          cd "${COMPOSE_DIR}"
           echo "=== docker-compose ps ==="
           docker-compose ps || true
           echo "=== nginx logs (last 120) ==="
