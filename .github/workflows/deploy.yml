@@ -7,44 +7,40 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to Server
     runs-on: [self-hosted]
 
     env:
       DOMAIN: ruppelltec.com
       CERTBOT_EMAIL: ruppelltec@gmail.com
-      APP_DIR: ruppell
-      COMPOSE_FILE: ruppell/docker-compose.yml
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Docker check + pick compose command
+      - name: Docker info
         shell: bash
         run: |
           set -euo pipefail
           docker --version
+          docker-compose version
 
-          if docker compose version >/dev/null 2>&1; then
-            echo "COMPOSE_CMD=docker compose" >> $GITHUB_ENV
-            docker compose version
-          elif command -v docker-compose >/dev/null 2>&1; then
-            echo "COMPOSE_CMD=docker-compose" >> $GITHUB_ENV
-            docker-compose version
-          else
-            echo "ERROR: No compose available (docker compose / docker-compose)."
-            exit 1
-          fi
-
-          # Info útil, pero no rompe el job
-          docker buildx version || true
-
-      - name: Create environment file
+      - name: Locate docker-compose.yml
         shell: bash
         run: |
           set -euo pipefail
-          cd "$APP_DIR"
+          COMPOSE_PATH="$(find . -maxdepth 6 -type f -name 'docker-compose.yml' | head -n 1)"
+          if [ -z "${COMPOSE_PATH:-}" ]; then
+            echo "ERROR: docker-compose.yml not found in repo."
+            exit 1
+          fi
+          echo "COMPOSE_PATH=$COMPOSE_PATH" >> $GITHUB_ENV
+          echo "COMPOSE_DIR=$(dirname "$COMPOSE_PATH")" >> $GITHUB_ENV
+          echo "Found: $COMPOSE_PATH"
+
+      - name: Create .env next to compose
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$COMPOSE_DIR"
           cat > .env <<EOF
           VITE_SERVER_URL=https://${DOMAIN}
           VITE_API_BASE_URL=https://${DOMAIN}/api
@@ -53,40 +49,33 @@ jobs:
           VITE_FRONT_PASSWORD_API=${{ vars.API_PASSWORD }}
           EOF
 
-      - name: Build & start services
+      - name: Deploy
         shell: bash
         run: |
           set -euo pipefail
-          cd "$APP_DIR"
+          cd "$COMPOSE_DIR"
 
-          # Baja stack anterior (sin borrar volúmenes) y levanta
-          $COMPOSE_CMD -f docker-compose.yml down --remove-orphans || true
-          $COMPOSE_CMD -f docker-compose.yml up -d --build
+          docker-compose down --remove-orphans || true
+          docker-compose up -d --build
+          docker-compose ps
 
-      - name: Verify containers running
+      - name: Verify
         shell: bash
         run: |
           set -euo pipefail
-          cd "$APP_DIR"
-          $COMPOSE_CMD -f docker-compose.yml ps
-          sleep 5
-          $COMPOSE_CMD -f docker-compose.yml ps | grep -q "nginx" || exit 1
-          $COMPOSE_CMD -f docker-compose.yml ps | grep -q "Up" || exit 1
+          cd "$COMPOSE_DIR"
+          docker-compose ps
+          docker-compose ps | grep -q "nginx" || exit 1
+          docker-compose ps | grep -q "Up" || exit 1
 
-      - name: Reload nginx (best effort)
-        shell: bash
-        run: |
-          cd "$APP_DIR"
-          $COMPOSE_CMD -f docker-compose.yml exec -T nginx nginx -s reload || true
-
-      - name: Show logs on failure
+      - name: Logs on failure
         if: failure()
         shell: bash
         run: |
-          cd "$APP_DIR"
-          echo "=== compose ps ==="
-          $COMPOSE_CMD -f docker-compose.yml ps || true
+          cd "$COMPOSE_DIR" || exit 0
+          echo "=== docker-compose ps ==="
+          docker-compose ps || true
           echo "=== nginx logs (last 120) ==="
-          $COMPOSE_CMD -f docker-compose.yml logs nginx --tail=120 || true
+          docker-compose logs nginx --tail=120 || true
           echo "=== certbot logs (last 120) ==="
-          $COMPOSE_CMD -f docker-compose.yml logs certbot --tail=120 || true
+          docker-compose logs certbot --tail=120 || true
