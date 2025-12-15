@@ -13,8 +13,8 @@ jobs:
     env:
       DOMAIN: ruppelltec.com
       CERTBOT_EMAIL: ruppelltec@gmail.com
-      APP_DIR: ruppell/ruppell
-      COMPOSE_FILE: ruppell/ruppell/docker-compose.yml
+      APP_DIR: ruppell
+      COMPOSE_FILE: ruppell/docker-compose.yml
 
     steps:
       - name: Checkout code
