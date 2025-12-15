@@ -1,10 +1,11 @@
-# Build Vite (producción)
 FROM node:20-alpine AS build
 WORKDIR /app
 
+# evita cache en /root/.npm
+ENV npm_config_cache=/tmp/.npm
+
 COPY package*.json ./
-# Recomendado en CI: npm ci si existe package-lock.json
-RUN npm ci || npm install
+RUN npm ci && npm cache clean --force
 
 COPY . .
 RUN npm run build

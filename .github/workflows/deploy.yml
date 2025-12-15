@@ -3,70 +3,50 @@ name: Deploy Ruppell
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 jobs:
   deploy:
-    name: Deploy to Server
     runs-on: [self-hosted]
 
-    defaults:
-      run:
-        shell: bash
-        working-directory: ${{ github.workspace }}
-
-    env:
-      DOMAIN: ruppelltec.com
-      CERTBOT_EMAIL: ruppelltec@gmail.com
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Docker permissions
+      - name: Ensure buildx + docker compose available
+        shell: bash
         run: |
-          sudo usermod -aG docker $USER || true
-          sudo chmod 666 /var/run/docker.sock || true
           docker --version
           docker-compose version
 
-      - name: Create environment file
-        run: |
-          cat > .env <<EOF
-          VITE_SERVER_URL=https://${DOMAIN}
-          VITE_API_BASE_URL=https://${DOMAIN}/api
-          VITE_API_VERSION=v1
-          VITE_FRONT_USERNAME_API=${{ vars.API_USERNAME }}
-          VITE_FRONT_PASSWORD_API=${{ vars.API_PASSWORD }}
-          EOF
+          # Buildx requerido por docker-compose build en tu host
+          docker buildx version || true
+          sudo apt-get update -y
+          sudo apt-get install -y docker-buildx-plugin
+          docker buildx version
 
-      - name: Build images
+      - name: Free disk space (safe)
+        shell: bash
         run: |
-          docker-compose build --no-cache
+          # NO borres volúmenes (para no perder certbot-etc)
+          docker-compose -f ruppell/ruppell/docker-compose.yml down || true
 
-      - name: Start services
-        run: |
-          # Baja stack anterior (sin borrar volúmenes) y levanta
-          docker-compose down --remove-orphans || true
-          docker-compose up -d
+          docker image prune -af || true
+          docker builder prune -af || true
 
-      - name: Verify containers running
+          df -h
+          docker system df
+
+      - name: Build & start services
+        shell: bash
         run: |
+          cd ruppell/ruppell
+          docker-compose up -d --build
           docker-compose ps
-          sleep 5
-          docker-compose ps | grep -q "nginx" || exit 1
-          docker-compose ps | grep -q "Up" || exit 1
 
-      - name: Reload nginx (best effort)
+      - name: Verify
+        shell: bash
         run: |
-          docker-compose exec -T nginx nginx -s reload || true
-
-      - name: Show logs on failure
-        if: failure()
-        run: |
-          echo "=== docker-compose ps ==="
-          docker-compose ps || true
-          echo "=== nginx logs (last 120) ==="
-          docker-compose logs nginx --tail=120 || true
-          echo "=== certbot logs (last 120) ==="
-          docker-compose logs certbot --tail=120 || true
+          cd ruppell/ruppell
+          docker-compose ps
+          docker-compose logs --tail=40 nginx || true
+          docker-compose logs --tail=60 certbot || true
