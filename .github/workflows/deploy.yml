@@ -2,40 +2,23 @@ name: Deploy Ruppell
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   workflow_dispatch:
-    inputs:
-      force_deploy:
-        description: "Force deployment"
-        required: false
-        default: false
-        type: boolean
 
 jobs:
   deploy:
     name: Deploy to Server
     runs-on: [self-hosted]
 
-    defaults:
-      run:
-        shell: bash
-        working-directory: ${{ github.workspace }}
+    env:
+      # Ruta al directorio que contiene docker-compose.yml
+      COMPOSE_DIR: ruppell
+      DOMAIN: ruppelltec.com
+      CERTBOT_EMAIL: admin@ruppelltec.com
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Debug workspace paths
-        run: |
-          echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
-          pwd
-          ls -la
-          find . -maxdepth 2 -name docker-compose.yml -o -name nginx.conf
-
-      - name: Limpiar logs de nginx antes de build
-        run: |
-          sudo rm -rf nginx/logs/* || true
 
       - name: Setup Docker permissions
         run: |
@@ -46,21 +29,52 @@ jobs:
 
       - name: Create environment file
         run: |
-          echo "VITE_SERVER_URL=https://${{ vars.DOMAIN }}" > .env
-          echo "VITE_API_BASE_URL=https://${{ vars.DOMAIN }}/api" >> .env
-          echo "VITE_API_VERSION=v1" >> .env
-          echo "VITE_FRONT_USERNAME_API=${{ vars.API_USERNAME }}" >> .env
-          echo "VITE_FRONT_PASSWORD_API=${{ vars.API_PASSWORD }}" >> .env
+          cd "${COMPOSE_DIR}"
+          cat > .env <<EOF
+          VITE_SERVER_URL=https://${DOMAIN}
+          VITE_API_BASE_URL=https://${DOMAIN}/api
+          VITE_API_VERSION=v1
+          VITE_FRONT_USERNAME_API=${{ vars.API_USERNAME }}
+          VITE_FRONT_PASSWORD_API=${{ vars.API_PASSWORD }}
+          EOF
 
-      - name: Validate compose location
+      - name: Build images
         run: |
-          pwd
-          ls -la
-          docker-compose config
+          cd "${COMPOSE_DIR}"
+          docker-compose build --no-cache
 
-      - name: Complete system cleanup before deploy
+      - name: Start services
         run: |
-          docker-compose down || true
-          npm cache clean --force || true
-          rm -rf node_modules || true
-          rm -rf dist build
+          cd "${COMPOSE_DIR}"
+          # Stop/remove containers only (no volumes) to apply changes cleanly
+          docker-compose down --remove-orphans || true
+          docker-compose up -d
+
+      - name: Ensure services are running
+        run: |
+          cd "${COMPOSE_DIR}"
+          docker-compose ps
+
+          # Espera corta para que nginx termine de iniciar/reiniciar
+          sleep 5
+
+          # Si nginx no está "Up", falla
+          docker-compose ps | grep -q "nginx" || exit 1
+          docker-compose ps | grep -q "Up" || (docker-compose ps && exit 1)
+
+      - name: Reload nginx after cert attempts (best effort)
+        run: |
+          cd "${COMPOSE_DIR}"
+          # Si certbot renueva/emite, nginx debe recargar para tomar el nuevo cert
+          docker-compose exec -T nginx nginx -s reload || true
+
+      - name: Show logs on failure
+        if: failure()
+        run: |
+          cd "${COMPOSE_DIR}"
+          echo "=== docker-compose ps ==="
+          docker-compose ps || true
+          echo "=== nginx logs (last 120) ==="
+          docker-compose logs nginx --tail=120 || true
+          echo "=== certbot logs (last 120) ==="
+          docker-compose logs certbot --tail=120 || true
