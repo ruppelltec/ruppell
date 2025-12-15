@@ -20,7 +20,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{ github.workspace }}
+        working-directory: ${{ github.workspace }}/ruppell
 
     steps:
       - name: Checkout code
@@ -44,6 +44,12 @@ jobs:
           echo "VITE_API_VERSION=v1" >> .env
           echo "VITE_FRONT_USERNAME_API=${{ vars.API_USERNAME }}" >> .env
           echo "VITE_FRONT_PASSWORD_API=${{ vars.API_PASSWORD }}" >> .env
+
+      - name: Validate compose location
+        run: |
+          pwd
+          ls -la
+          docker-compose config
 
       - name: Complete system cleanup before deploy
         run: |
