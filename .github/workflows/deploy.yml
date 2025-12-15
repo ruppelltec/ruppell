@@ -20,11 +20,18 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ${{ github.workspace }}/ruppell
+        working-directory: ${{ github.workspace }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Debug workspace paths
+        run: |
+          echo "GITHUB_WORKSPACE=$GITHUB_WORKSPACE"
+          pwd
+          ls -la
+          find . -maxdepth 2 -name docker-compose.yml -o -name nginx.conf
 
       - name: Limpiar logs de nginx antes de build
         run: |
