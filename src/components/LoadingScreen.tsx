@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const logoUrl = "/assets/logo_ruppell_golden.png";
+
 export const LoadingScreen = () => {
   const [progress, setProgress] = useState(0);
 
@@ -31,7 +33,7 @@ export const LoadingScreen = () => {
         {/* Logo */}
         <div className="mb-8">
           <img
-            src="/src/assets/logo_ruppell_golden.png"
+            src={logoUrl}
             alt="Ruppell Logo"
             className="w-50 h-50 mx-auto object-contain"
           />

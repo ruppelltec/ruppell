@@ -10,7 +10,7 @@ export const NestFragment = () => {
 
   return (
     <>
-      {!loading && nests && nests.length > 0 && (
+      {!loading && Array.isArray(nests) && nests.length > 0 && (
         <div className="relative w-full py-10">
           <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-deep-black-500 px-2 md:px-10 pb-3 text-center w-full leading-12 md:leading-20 relative z-30">
             Conoce <br className="md:hidden" />

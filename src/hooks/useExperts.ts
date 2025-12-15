@@ -14,12 +14,27 @@ export const useExperts = () => {
         setLoading(true);
         setError(null);
         const data = await getExperts();
-        setExperts(data);
+        
+        // Validación defensiva: asegurar que data es un array válido
+        if (Array.isArray(data) && data.length > 0) {
+          setExperts(data);
+        } else {
+          console.warn("useExperts: API returned invalid data, using static fallback", data);
+          setExperts(staticData.experts || []);
+        }
       } catch (err) {
         const serviceError = err as ServiceError;
         console.error("Failed to load experts", serviceError);
         setError(serviceError);
-        setExperts(staticData.experts);
+        
+        // Asegurar que siempre tenemos un array como fallback
+        const fallbackData = staticData.experts;
+        if (Array.isArray(fallbackData)) {
+          setExperts(fallbackData);
+        } else {
+          console.error("Static data is also invalid, using empty array");
+          setExperts([]);
+        }
       } finally {
         setLoading(false);
       }

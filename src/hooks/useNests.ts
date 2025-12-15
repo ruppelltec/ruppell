@@ -14,12 +14,27 @@ export const useNests = () => {
         setLoading(true);
         setError(null);
         const data = await getNests();
-        setNests(data);
+        
+        // Validación defensiva: asegurar que data es un array válido
+        if (Array.isArray(data) && data.length > 0) {
+          setNests(data);
+        } else {
+          console.warn("useNests: API returned invalid data, using static fallback", data);
+          setNests(staticData.nests || []);
+        }
       } catch (err) {
         const serviceError = err as ServiceError;
         console.error("Failed to load nests", serviceError);
         setError(serviceError);
-        setNests(staticData.nests);
+        
+        // Asegurar que siempre tenemos un array como fallback
+        const fallbackData = staticData.nests;
+        if (Array.isArray(fallbackData)) {
+          setNests(fallbackData);
+        } else {
+          console.error("Static data is also invalid, using empty array");
+          setNests([]);
+        }
       } finally {
         setLoading(false);
       }

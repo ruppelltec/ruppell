@@ -9,7 +9,7 @@ export const CoursesFragment = () => {
 
   return (
     <>
-      {!loading && categories && categories.length > 0 && (
+      {!loading && Array.isArray(categories) && categories.length > 0 && (
         <section className="bg-custom-gray">
           <div className="h-full relative z-50">
             <div className="w-[10px] sm:w-[20px] md:w-[30px] lg:w-[50px] md:ml-5 h-full ml-2 bg-golden-yellow-500 shadow-lg absolute z-1"></div>

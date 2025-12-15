@@ -59,7 +59,7 @@ const SenseLeftItem = ({ category }: { category: Category }) => (
           },
         }}
       >
-        {category.courses.map((course, index) => (
+        {Array.isArray(category.courses) && category.courses.map((course, index) => (
           <SwiperSlide key={course.id} virtualIndex={index}>
             <CourseCard course={course} />
           </SwiperSlide>
@@ -116,7 +116,7 @@ const SenseRightItem = ({ category }: { category: Category }) => (
           },
         }}
       >
-        {category.courses.map((course, index) => (
+        {Array.isArray(category.courses) && category.courses.map((course, index) => (
           <SwiperSlide key={course.id} virtualIndex={index}>
             <CourseCard course={course} />
           </SwiperSlide>

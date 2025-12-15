@@ -11,7 +11,7 @@ export const ExpertsFragment = () => {
 
   return (
     <>
-      {!loading && experts && experts.length > 0 && (
+      {!loading && Array.isArray(experts) && experts.length > 0 && (
         <section className="bg-deep-second-black-500 w-full">
           <div className="flex justify-center w-full">
             <img
