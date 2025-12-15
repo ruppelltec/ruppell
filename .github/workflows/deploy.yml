@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       force_deploy:
-        description: 'Force deployment'
+        description: "Force deployment"
         required: false
         default: false
         type: boolean
@@ -48,112 +48,6 @@ jobs:
       - name: Complete system cleanup before deploy
         run: |
           docker-compose down || true
-
           npm cache clean --force || true
           rm -rf node_modules || true
-
-          rm -rf dist build logs nginx/cache || true
-
-          df -h
-          docker system df
-
-      # IMPORTANTE:
-      # - Ya NO generamos self-signed en el workflow.
-      # - La generación de self-signed debe quedar en el entrypoint del contenedor nginx (entrypoint.sh),
-      #   para que nginx nunca se caiga si el cert aún no existe.
-      # - Asegúrate en docker-compose.yml de fijar nombres de volúmenes:
-      #   certbot-etc: { name: certbot-etc } y certbot-var: { name: certbot-var }
-
-      - name: Build and start nginx
-        env:
-          VITE_SERVER_URL: https://${{ vars.DOMAIN }}
-        run: |
-          docker-compose build --no-cache
-          docker-compose up -d --build nginx
-
-          echo "Waiting for nginx to start..."
-          sleep 5
-
-          docker ps
-          echo "✅ Nginx started (debe levantar incluso si aún no hay cert válido)."
-
-      - name: Obtain/renew SSL certificate with Certbot (webroot)
-        env:
-          CERTBOT_EMAIL: bscantor3@gmail.com
-          DOMAIN: ${{ vars.DOMAIN }}
-        run: |
-          echo "🔐 Attempting to obtain/renew SSL certificate (webroot)..."
-
-          # Recomendado: emitir para dominio y www (si aplica)
-          # Asegúrate que vars.DOMAIN sea el dominio raíz (ej: ruppelltec.com)
-          set +e
-          docker-compose run --rm certbot certonly \
-            --webroot -w /var/www/certbot \
-            --email "$CERTBOT_EMAIL" \
-            --agree-tos --no-eff-email \
-            -d "$DOMAIN" -d "www.$DOMAIN"
-          CERTBOT_EXIT=$?
-          set -e
-
-          if [ "$CERTBOT_EXIT" -eq 0 ]; then
-            echo "✅ Certbot completed successfully, reloading nginx..."
-            docker-compose exec nginx nginx -s reload || true
-          else
-            echo "⚠️ Certbot failed (rate limit or HTTP/DNS issue)."
-            echo "   Nginx permanece con el certificado actual (self-signed o el último válido)."
-          fi
-
-      - name: Verify domain connectivity
-        run: |
-          set -e
-          echo '🌐 Verificando conectividad del dominio...'
-          DOMAIN="${{ vars.DOMAIN }}"
-
-          echo "📡 Verificando DNS para $DOMAIN..."
-          nslookup "$DOMAIN" || echo "⚠️ DNS lookup failed"
-
-          echo "🔌 Verificando conectividad HTTP (ACME challenge path)..."
-          curl -I --connect-timeout 10 "http://$DOMAIN/.well-known/acme-challenge/" || echo "⚠️ HTTP connection failed"
-
-          echo "🏠 Verificando nginx interno..."
-          docker-compose exec nginx curl -s -o /dev/null -w "%{http_code}\n" http://localhost/api/health || echo "⚠️ Internal nginx check failed"
-
-      - name: SSL Setup Troubleshooting
-        if: failure()
-        run: |
-          echo "🔧 Troubleshooting SSL setup..."
-          echo "=== Container Status ==="
-          docker-compose ps || true
-          echo "=== Nginx Logs ==="
-          docker-compose logs nginx --tail=80 || true
-          echo "=== Certbot Logs ==="
-          docker-compose logs certbot --tail=80 || true
-          echo "=== Volumes (debug) ==="
-          docker volume ls | grep -E 'certbot|ruppell' || true
-
-          echo "💡 Si ves volúmenes como ruppell_certbot-etc y certbot-etc al tiempo,"
-          echo "   fija nombres en docker-compose.yml (name: certbot-etc / name: certbot-var) para evitar duplicados."
-
-      - name: Verify deployment
-        run: |
-          echo "✅ Verificando contenedores en ejecución..."
-          docker-compose ps
-
-      - name: Post-deploy cleanup
-        if: always()
-        run: |
-          docker image prune -f || true
-          npm cache clean --force || true
-
-          echo "=== Final Disk Usage ==="
-          df -h
-          echo "=== Final Docker Usage ==="
-          docker system df
-
-      - name: Show service logs
-        if: failure()
-        run: |
-          echo "=== Container Status ==="
-          docker-compose ps || true
-          echo "=== Service Logs (últimos 80 logs por servicio) ==="
-          docker-compose logs --tail=80 || true
+          rm -rf dist build

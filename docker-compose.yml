@@ -4,7 +4,6 @@ networks:
   linker-network:
 
 services:
-  # Nginx reverse proxy with SSL and frontend static files
   nginx:
     build: .
     ports:
@@ -22,10 +21,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-    depends_on:
-      - certbot
 
-  # Certbot service for SSL certificates
   certbot:
     image: certbot/certbot:latest
     volumes:
@@ -33,24 +29,23 @@ services:
       - certbot-var:/var/www/certbot
     entrypoint: >
       sh -c "
-        echo 'Starting certbot...'
-        sleep 5
-        echo 'Attempting to generate certificate for ruppelltec.com...'
-        certbot certonly 
-          --webroot 
-          --webroot-path=/var/www/certbot 
-          --email admin@ruppelltec.com 
-          --agree-tos 
-          --non-interactive 
-          --domains ruppelltec.com,www.ruppelltec.com
-        || echo 'Certificate generation failed or already exists'
-        echo 'Certbot setup complete'
-        sleep infinity
+        echo 'Starting certbot...';
+        certbot certonly --webroot -w /var/www/certbot \
+          --email admin@ruppelltec.com --agree-tos --non-interactive \
+          -d ruppelltec.com -d www.ruppelltec.com || true;
+        echo 'Initial cert attempt done. Starting renew loop...';
+        trap exit TERM;
+        while :; do
+          certbot renew --webroot -w /var/www/certbot --quiet;
+          sleep 12h & wait $${!};
+        done
       "
-    restart: "no"
+    restart: unless-stopped
     networks:
       - linker-network
 
 volumes:
   certbot-etc:
+    name: certbot-etc
   certbot-var:
+    name: certbot-var
