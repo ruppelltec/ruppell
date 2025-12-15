@@ -7,46 +7,86 @@ on:
 
 jobs:
   deploy:
+    name: Deploy to Server
     runs-on: [self-hosted]
 
+    env:
+      DOMAIN: ruppelltec.com
+      CERTBOT_EMAIL: ruppelltec@gmail.com
+      APP_DIR: ruppell/ruppell
+      COMPOSE_FILE: ruppell/ruppell/docker-compose.yml
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Ensure buildx + docker compose available
+      - name: Docker check + pick compose command
         shell: bash
         run: |
+          set -euo pipefail
           docker --version
-          docker-compose version
 
-          # Buildx requerido por docker-compose build en tu host
+          if docker compose version >/dev/null 2>&1; then
+            echo "COMPOSE_CMD=docker compose" >> $GITHUB_ENV
+            docker compose version
+          elif command -v docker-compose >/dev/null 2>&1; then
+            echo "COMPOSE_CMD=docker-compose" >> $GITHUB_ENV
+            docker-compose version
+          else
+            echo "ERROR: No compose available (docker compose / docker-compose)."
+            exit 1
+          fi
+
+          # Info útil, pero no rompe el job
           docker buildx version || true
-          sudo apt-get update -y
-          sudo apt-get install -y docker-buildx-plugin
-          docker buildx version
 
-      - name: Free disk space (safe)
+      - name: Create environment file
         shell: bash
         run: |
-          # NO borres volúmenes (para no perder certbot-etc)
-          docker-compose -f ruppell/ruppell/docker-compose.yml down || true
-
-          docker image prune -af || true
-          docker builder prune -af || true
-
-          df -h
-          docker system df
+          set -euo pipefail
+          cd "$APP_DIR"
+          cat > .env <<EOF
+          VITE_SERVER_URL=https://${DOMAIN}
+          VITE_API_BASE_URL=https://${DOMAIN}/api
+          VITE_API_VERSION=v1
+          VITE_FRONT_USERNAME_API=${{ vars.API_USERNAME }}
+          VITE_FRONT_PASSWORD_API=${{ vars.API_PASSWORD }}
+          EOF
 
       - name: Build & start services
         shell: bash
         run: |
-          cd ruppell/ruppell
-          docker-compose up -d --build
-          docker-compose ps
+          set -euo pipefail
+          cd "$APP_DIR"
 
-      - name: Verify
+          # Baja stack anterior (sin borrar volúmenes) y levanta
+          $COMPOSE_CMD -f docker-compose.yml down --remove-orphans || true
+          $COMPOSE_CMD -f docker-compose.yml up -d --build
+
+      - name: Verify containers running
         shell: bash
         run: |
-          cd ruppell/ruppell
-          docker-compose ps
-          docker-compose logs --tail=40 nginx || true
-          docker-compose logs --tail=60 certbot || true
+          set -euo pipefail
+          cd "$APP_DIR"
+          $COMPOSE_CMD -f docker-compose.yml ps
+          sleep 5
+          $COMPOSE_CMD -f docker-compose.yml ps | grep -q "nginx" || exit 1
+          $COMPOSE_CMD -f docker-compose.yml ps | grep -q "Up" || exit 1
+
+      - name: Reload nginx (best effort)
+        shell: bash
+        run: |
+          cd "$APP_DIR"
+          $COMPOSE_CMD -f docker-compose.yml exec -T nginx nginx -s reload || true
+
+      - name: Show logs on failure
+        if: failure()
+        shell: bash
+        run: |
+          cd "$APP_DIR"
+          echo "=== compose ps ==="
+          $COMPOSE_CMD -f docker-compose.yml ps || true
+          echo "=== nginx logs (last 120) ==="
+          $COMPOSE_CMD -f docker-compose.yml logs nginx --tail=120 || true
+          echo "=== certbot logs (last 120) ==="
+          $COMPOSE_CMD -f docker-compose.yml logs certbot --tail=120 || true
