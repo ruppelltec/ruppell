@@ -1,10 +1,10 @@
 import { Autoplay } from "swiper/modules";
-import arrowUp from "./../assets/arrow-up.png";
-import logoEarth from "./../assets/logo-earth.png";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useExperts } from "../hooks/useExperts";
 import SmartImage from "./SmartImage";
+
+const arrowUp = "/assets/arrow-up.png";
+const logoEarth = "/assets/logo-earth.png";
 
 export const ExpertsFragment = () => {
   const { experts, loading } = useExperts();

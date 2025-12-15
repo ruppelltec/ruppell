@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import ruppellBird from "./../assets/ruppell_bird_1.png";
-import logoBird from "./../assets/logo_bird.png";
-import circleBackground from "./../assets/cirlce-background.png";
+
+const ruppellBird = "/assets/ruppell_bird_1.png";
+const logoBird = "/assets/logo_bird.png";
+const circleBackground = "/assets/cirlce-background.png";
 
 export const AboutFragment = () => {
   return (

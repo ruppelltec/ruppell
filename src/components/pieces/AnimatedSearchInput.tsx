@@ -22,9 +22,27 @@ export const AnimatedSearchInput = ({
 
   // Extraer nombres de cursos únicos de las categorías
   const courseNames = useMemo(() => {
-    const names = categories.flatMap(category => 
-      category.courses.map(course => course.title)
-    );
+    // Validación defensiva: asegurar que categories es un array
+    if (!Array.isArray(categories)) {
+      console.warn('AnimatedSearchInput: categories prop is not an array', categories);
+      return [];
+    }
+    
+    const names = categories.flatMap(category => {
+      // Validación adicional: asegurar que cada category tiene courses
+      if (!category || !Array.isArray(category.courses)) {
+        console.warn('AnimatedSearchInput: invalid category structure', category);
+        return [];
+      }
+      return category.courses.map(course => {
+        // Validación adicional: asegurar que course tiene title
+        if (!course || !course.title) {
+          console.warn('AnimatedSearchInput: invalid course structure', course);
+          return '';
+        }
+        return course.title;
+      }).filter(title => title !== ''); // Filtrar títulos vacíos
+    });
     return [...new Set(names)]; // Eliminar duplicados
   }, [categories]);
 

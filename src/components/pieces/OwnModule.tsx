@@ -1,6 +1,6 @@
-import universityStudent from "./../../assets/university-student.png";
-import circleModule from "./../../assets/circle-module.png";
-import birdNest from "./../../assets/bird-nest.png";
+const universityStudent = "/assets/university-student.png";
+const circleModule = "/assets/circle-module.png";
+const birdNest = "/assets/bird-nest.png";
 
 export const OwnModule = () => {
   return (

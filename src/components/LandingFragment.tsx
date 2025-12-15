@@ -1,21 +1,19 @@
-import ruppellTitle from "./../assets/ruppell_title.png";
-import logoSilver from "./../assets/logo_silver.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-
 import { useEffect, useMemo, useState } from "react";
 import {
-  // type Container,
   type ISourceOptions,
   MoveDirection,
   OutMode,
 } from "@tsparticles/engine";
-
 import { loadSlim } from "@tsparticles/slim";
 import { motion } from "motion/react";
 import { useCategories } from "../hooks/useCategories";
 import AnimatedSearchInput from "./pieces/AnimatedSearchInput";
+
+const ruppellTitle = "/assets/ruppell_title.png";
+const logoSilver = "/assets/logo_silver.png";
 
 export const LandingFragment = () => {
   const { categories } = useCategories();
@@ -41,7 +39,7 @@ export const LandingFragment = () => {
       const offsetTop = nextSection.offsetTop - navbarHeight;
       window.scrollTo({
         top: offsetTop,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -168,8 +166,8 @@ export const LandingFragment = () => {
               },
               scale: {
                 duration: 0.3,
-                ease: "easeInOut"
-              }
+                ease: "easeInOut",
+              },
             }}
           >
             <FontAwesomeIcon

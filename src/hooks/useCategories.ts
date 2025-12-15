@@ -14,12 +14,27 @@ export const useCategories = () => {
         setLoading(true);
         setError(null);
         const data = await getCourseList();
-        setCategories(data);
+        
+        // Validación defensiva: asegurar que data es un array válido
+        if (Array.isArray(data) && data.length > 0) {
+          setCategories(data);
+        } else {
+          console.warn("useCategories: API returned invalid data, using static fallback", data);
+          setCategories(staticData.categories || []);
+        }
       } catch (err) {
         const serviceError = err as ServiceError;
         console.error("Failed to load categories", serviceError);
         setError(serviceError);
-        setCategories(staticData.categories);
+        
+        // Asegurar que siempre tenemos un array como fallback
+        const fallbackData = staticData.categories;
+        if (Array.isArray(fallbackData)) {
+          setCategories(fallbackData);
+        } else {
+          console.error("Static data is also invalid, using empty array");
+          setCategories([]);
+        }
       } finally {
         setLoading(false);
       }

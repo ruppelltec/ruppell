@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { Category } from "../../types";
 import CourseCard from "./CourseCard";
 

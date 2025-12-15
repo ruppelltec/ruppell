@@ -1,4 +1,4 @@
-import logoGolden from "../../assets/logo_ruppell_golden.png";
+const logoGolden = "/assets/logo_ruppell_golden.png";
 
 interface NavbarLogoProps {
   className?: string;

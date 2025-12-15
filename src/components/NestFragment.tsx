@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
 import NestItem from "./pieces/NestItem";
-
-import logoSilver from "./../assets/logo_silver.png";
-import birdNest from "./../assets/bird-nest.png";
+import { motion } from "motion/react";
 import { useNests } from "../hooks/useNests";
+
+const logoSilver = "/assets/logo_silver.png";
+const birdNest = "/assets/bird-nest.png";
 
 export const NestFragment = () => {
   const { nests, loading } = useNests();
@@ -38,7 +38,7 @@ export const NestFragment = () => {
                     <NestItem
                       key={nest.id}
                       nest={nest}
-                      variant={index % 2 === 0 ? 'left' : 'right'}
+                      variant={index % 2 === 0 ? "left" : "right"}
                     />
                   ));
                 }
