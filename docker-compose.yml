@@ -27,31 +27,33 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/www/certbot
-    command:
-      [
-        "sh","-c",
-        "set -e; \
-         DOMAIN=ruppelltec.com; \
-         CERT_PATH=/etc/letsencrypt/live/$DOMAIN/fullchain.pem; \
-         echo 'Starting certbot...'; \
-         if [ -f \"$CERT_PATH\" ]; then \
-           echo '✅ Certificate already exists. Skipping certonly.'; \
-         else \
-           echo '🆕 No certificate found. Attempting first issuance...'; \
-           certbot certonly --webroot -w /var/www/certbot \
-             --email ruppelltec@gmail.com --agree-tos --non-interactive --no-eff-email \
-             -d ruppelltec.com -d www.ruppelltec.com; \
-         fi; \
-         echo 'Starting renew loop...'; \
-         trap exit TERM; \
-         while :; do \
-           certbot renew --webroot -w /var/www/certbot --quiet || true; \
-           sleep 12h & wait $${!}; \
-         done"
-      ]
+    command: >
+      sh -c '
+        set -e;
+        DOMAIN=ruppelltec.com;
+        CERT_PATH=/etc/letsencrypt/live/$DOMAIN/fullchain.pem;
+
+        echo "Starting certbot...";
+        if [ -f "$CERT_PATH" ]; then
+          echo "✅ Certificate already exists. Skipping certonly.";
+        else
+          echo "🆕 No certificate found. Attempting first issuance...";
+          certbot certonly --webroot -w /var/www/certbot
+            --email ruppelltec@gmail.com --agree-tos --non-interactive --no-eff-email
+            -d ruppelltec.com -d www.ruppelltec.com;
+        fi
+
+        echo "Starting renew loop...";
+        trap exit TERM;
+        while :; do
+          certbot renew --webroot -w /var/www/certbot --quiet || true;
+          sleep 12h & wait $!; 
+        done
+      '
     restart: unless-stopped
     networks:
       - linker-network
+
 
 volumes:
   certbot-etc:
