@@ -1,4 +1,3 @@
-import CourseList from "./pieces/CourseList";
 import NestFragment from "./NestFragment";
 import OwnModule from "./pieces/OwnModule";
 import RewardBand from "./pieces/RewardBand";

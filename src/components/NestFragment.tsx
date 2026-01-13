@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { Category } from "../types";
 
 export const NestFragment = () => {
   const navigate = useNavigate();

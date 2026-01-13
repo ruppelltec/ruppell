@@ -17,10 +17,26 @@ export const useCategories = () => {
         
         // Validación defensiva: asegurar que data es un array válido
         if (Array.isArray(data) && data.length > 0) {
-          setCategories(data);
+          // Convert data to match Category type
+          const typedData = data.map((cat: any) => ({
+            ...cat,
+            courses: cat.courses.map((course: any) => ({
+              ...course,
+              level: course.level as 'Básico' | 'Intermedio' | 'Avanzado' | undefined
+            }))
+          }));
+          setCategories(typedData);
         } else {
           console.warn("useCategories: API returned invalid data, using static fallback", data);
-          setCategories(staticData.categories || []);
+          // Convert static data to match Category type
+          const typedStaticData = staticData.categories.map((cat: any) => ({
+            ...cat,
+            courses: cat.courses.map((course: any) => ({
+              ...course,
+              level: course.level as 'Básico' | 'Intermedio' | 'Avanzado' | undefined
+            }))
+          }));
+          setCategories(typedStaticData);
         }
       } catch (err) {
         const serviceError = err as ServiceError;
@@ -30,7 +46,15 @@ export const useCategories = () => {
         // Asegurar que siempre tenemos un array como fallback
         const fallbackData = staticData.categories;
         if (Array.isArray(fallbackData)) {
-          setCategories(fallbackData);
+          // Convert fallback data to match Category type
+          const typedFallbackData = fallbackData.map((cat: any) => ({
+            ...cat,
+            courses: cat.courses.map((course: any) => ({
+              ...course,
+              level: course.level as 'Básico' | 'Intermedio' | 'Avanzado' | undefined
+            }))
+          }));
+          setCategories(typedFallbackData);
         } else {
           console.error("Static data is also invalid, using empty array");
           setCategories([]);

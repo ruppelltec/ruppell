@@ -17,10 +17,20 @@ export const useExperts = () => {
         
         // Validación defensiva: asegurar que data es un array válido
         if (Array.isArray(data) && data.length > 0) {
-          setExperts(data);
+          // Convert data to match Expert type
+          const typedData = data.map((expert: any) => ({
+            ...expert,
+            image: expert.image || '' // Add missing image property
+          }));
+          setExperts(typedData);
         } else {
           console.warn("useExperts: API returned invalid data, using static fallback", data);
-          setExperts(staticData.experts || []);
+          // Convert static data to match Expert type
+          const typedStaticData = staticData.experts.map((expert: any) => ({
+            ...expert,
+            image: expert.image || '' // Add missing image property
+          }));
+          setExperts(typedStaticData);
         }
       } catch (err) {
         const serviceError = err as ServiceError;
@@ -30,7 +40,12 @@ export const useExperts = () => {
         // Asegurar que siempre tenemos un array como fallback
         const fallbackData = staticData.experts;
         if (Array.isArray(fallbackData)) {
-          setExperts(fallbackData);
+          // Convert fallback data to match Expert type
+          const typedFallbackData = fallbackData.map((expert: any) => ({
+            ...expert,
+            image: expert.image || '' // Add missing image property
+          }));
+          setExperts(typedFallbackData);
         } else {
           console.error("Static data is also invalid, using empty array");
           setExperts([]);
