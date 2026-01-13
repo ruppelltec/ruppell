@@ -1,362 +1,1412 @@
 {
-  "nests": [
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440000",
-      "title": "Tecnología y Programación",
-      "description": "Cursos para aprender sobre tecnología y programación."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440001",
-      "title": "Negocios y Emprendimiento",
-      "description": "Cursos diseñados para ayudarte a crecer y desarrollarte en el mundo de los negocios y el emprendimiento."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440002",
-      "title": "Diseño y Creatividad",
-      "description": "Desarrolla tus habilidades en diseño y creatividad con estos cursos."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440003",
-      "title": "Ciencia y Matemáticas",
-      "description": "Explora el mundo de la ciencia y las matemáticas con estos cursos."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440004",
-      "title": "Idiomas y Comunicación",
-      "description": "Cursos para aprender nuevos idiomas y mejorar tus habilidades de comunicación."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440005",
-      "title": "Desarrollo Personal",
-      "description": "Cursos para mejorar tu desarrollo personal y crecimiento."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440006",
-      "title": "Arte y Música",
-      "description": "Desarrolla tus habilidades artísticas y musicales con estos cursos."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440007",
-      "title": "Educación y Pedagogía",
-      "description": "Cursos para mejorar tus habilidades en educación y pedagogía."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440008",
-      "title": "Salud y Medicina",
-      "description": "Cursos para aprender sobre salud y medicina."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440009",
-      "title": "Ingeniería y Arquitectura",
-      "description": "Explora el mundo de la ingeniería y la arquitectura con estos cursos."
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655440010",
-      "title": "Comedia y Humor",
-      "description": "Cursos para aprender sobre comedia y humor."
-    }
-  ],
-  "categories": [
-    {
-      "id": "550e8400-e29b-41d4-a716-446655420000",
-      "title": "Desarrollo Personal",
-      "description": "Las habilidades blandas son clave para el éxito personal y profesional. Esta categoría de cursos te ayudarán a mejorar la comunicación, el liderazgo, la inteligencia emocional y la resolución de problemas.",
-      "courses": [
+    "nests": [
         {
-          "id": "550e8400-e29b-41d4-a716-446655440000",
-          "title": "Comunicación Eficaz para el Éxito Profesional",
-          "popularity": 4.5,
-          "expert": "Samuel Allanos",
-          "image": "https://picsum.photos/200/185?random=1"
+            "id": "550e8400-e29b-41d4-a716-446655440000",
+            "title": "Tecnología y Programación",
+            "description": "Cursos para aprender sobre tecnología y programación."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-446655410000",
-          "title": "Curso de Carpintería",
-          "popularity": 4.3,
-          "expert": "Bob Vila",
-          "image": "https://picsum.photos/200/185?random=2"
+            "id": "550e8400-e29b-41d4-a716-446655440001",
+            "title": "Negocios y Emprendimiento",
+            "description": "Cursos diseñados para ayudarte a crecer y desarrollarte en el mundo de los negocios y el emprendimiento."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-446652440000",
-          "title": "Curso de Jardinería",
-          "popularity": 4.4,
-          "expert": "Alan Titchmarsh",
-          "image": "https://picsum.photos/200/185?random=3"
+            "id": "550e8400-e29b-41d4-a716-446655440002",
+            "title": "Diseño y Creatividad",
+            "description": "Desarrolla tus habilidades en diseño y creatividad con estos cursos."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-446645440000",
-          "title": "Curso de Plomería",
-          "popularity": 4.2,
-          "expert": "Richard Trethewey",
-          "image": "https://picsum.photos/200/185?random=4"
+            "id": "550e8400-e29b-41d4-a716-446655440003",
+            "title": "Ciencia y Matemáticas",
+            "description": "Explora el mundo de la ciencia y las matemáticas con estos cursos."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-446055440000",
-          "title": "Curso de Electricidad",
-          "popularity": 4.5,
-          "expert": "Mike Holt",
-          "image": "https://picsum.photos/200/185?random=5"
+            "id": "550e8400-e29b-41d4-a716-446655440004",
+            "title": "Idiomas y Comunicación",
+            "description": "Cursos para aprender nuevos idiomas y mejorar tus habilidades de comunicación."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-443655440000",
-          "title": "Curso de Mecánica Automotriz",
-          "popularity": 4.3,
-          "expert": "Scotty Kilmer",
-          "image": "https://picsum.photos/200/185?random=6"
+            "id": "550e8400-e29b-41d4-a716-446655440005",
+            "title": "Desarrollo Personal",
+            "description": "Cursos para mejorar tu desarrollo personal y crecimiento."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-4466575440000",
-          "title": "Curso de Soldadura",
-          "popularity": 4.4,
-          "expert": "Weld.com",
-          "image": "https://picsum.photos/200/185?random=7"
+            "id": "550e8400-e29b-41d4-a716-446655440006",
+            "title": "Arte y Música",
+            "description": "Desarrolla tus habilidades artísticas y musicales con estos cursos."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-446655340000",
-          "title": "Curso de Albañilería",
-          "popularity": 4.3,
-          "expert": "This Old House",
-          "image": "https://picsum.photos/200/185?random=8"
+            "id": "550e8400-e29b-41d4-a716-446655440007",
+            "title": "Educación y Pedagogía",
+            "description": "Cursos para mejorar tus habilidades en educación y pedagogía."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-446658440000",
-          "title": "Curso de Cerrajería",
-          "popularity": 4.2,
-          "expert": "Locksmith Training",
-          "image": "https://picsum.photos/200/185?random=9"
+            "id": "550e8400-e29b-41d4-a716-446655440008",
+            "title": "Salud y Medicina",
+            "description": "Cursos para aprender sobre salud y medicina."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-446655450000",
-          "title": "Curso de Pintura y Decoración",
-          "popularity": 4.5,
-          "expert": "Home Depot",
-          "image": "https://picsum.photos/200/185?random=10"
+            "id": "550e8400-e29b-41d4-a716-446655440009",
+            "title": "Ingeniería y Arquitectura",
+            "description": "Explora el mundo de la ingeniería y la arquitectura con estos cursos."
         },
         {
-          "id": "550e8400-e29b-41d4-a716-446655443000",
-          "title": "Curso de Reparación de Electrodomésticos",
-          "popularity": 4.3,
-          "expert": "Repair Clinic",
-          "image": "https://picsum.photos/200/185?random=11"
-        },
-        {
-          "id": "550e8400-e29b-41d4-a716-446655449000",
-          "title": "Curso de Fontanería",
-          "popularity": 4.4,
-          "expert": "Plumbing Academy",
-          "image": "https://picsum.photos/200/185?random=12"
+            "id": "550e8400-e29b-41d4-a716-446655440010",
+            "title": "Comedia y Humor",
+            "description": "Cursos para aprender sobre comedia y humor."
         }
-      ]
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655420001",
-      "title": "Comedia y Humor",
-      "description": "La comedia es más que hacer reír, es una forma de conectar, liberar tensiones y transformar lo cotidiano en algo extraordinario. Te enseñamos desde los principios del humor hasta las técnicas avanzadas de improvisación, escritura y actuación.",
-      "courses": [
+    ],
+    "categories": [
         {
-          "id": "660e8400-e29b-41d4-a716-446655440001",
-          "title": "Curso de Stand-Up Comedy",
-          "popularity": 4.6,
-          "expert": "Jerry Seinfeld",
-          "image": "https://picsum.photos/200/185?random=13"
+            "id": "550e8400-e29b-41d4-a716-446655420000",
+            "title": "Desarrollo Personal",
+            "description": "Las habilidades blandas son clave para el éxito personal y profesional. Esta categoría de cursos te ayudarán a mejorar la comunicación, el liderazgo, la inteligencia emocional y la resolución de problemas.",
+            "courses": [
+                {
+                    "id": "550e8400-e29b-41d4-a716-446655440000",
+                    "title": "Comunicación Eficaz para el Éxito Profesional",
+                    "popularity": 4.5,
+                    "expert": "Samuel Allanos",
+                    "image": "https://picsum.photos/200/185?random=1",
+                    "price": 480000,
+                    "duration": 98.5,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Domina la teoría y la práctica con este curso intensivo que cambiará tu perspectiva.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    "introText": "En este curso aprenderás las técnicas fundamentales de la comunicación eficaz que te permitirán destacar en cualquier entorno profesional. Desde presentaciones impactantes hasta negociaciones exitosas, dominarás las habilidades que los líderes modernos necesitan. Con ejercicios prácticos y retroalimentación personalizada, transformarás tu manera de comunicarte y conectar con los demás.",
+                    "paymentLink": "https://example.com/payment/comunicacion-eficaz"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-446655410000",
+                    "title": "Curso de Carpintería",
+                    "popularity": 4.3,
+                    "expert": "Bob Vila",
+                    "image": "https://picsum.photos/200/185?random=2",
+                    "price": 60000,
+                    "duration": 11.6,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "En este curso de curso de carpintería, Bob Vila te guiará a través de un recorrido completo que transformará tu manera de abordar desarrollo personal. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-446655410000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-446652440000",
+                    "title": "Curso de Jardinería",
+                    "popularity": 4.4,
+                    "expert": "Alan Titchmarsh",
+                    "image": "https://picsum.photos/200/185?random=3",
+                    "price": 460000,
+                    "duration": 9.4,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Descubre las técnicas más avanzadas para dominar esta habilidad y destacar en el mercado laboral actual.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/Y8Tko2YC5hA",
+                    "introText": "Domina curso de jardinería con Alan Titchmarsh, uno de los expertos más reconocidos en desarrollo personal. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-446652440000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-446645440000",
+                    "title": "Curso de Plomería",
+                    "popularity": 4.2,
+                    "expert": "Richard Trethewey",
+                    "image": "https://picsum.photos/200/185?random=4",
+                    "price": 390000,
+                    "duration": 49.0,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Domina curso de plomería con Richard Trethewey, uno de los expertos más reconocidos en desarrollo personal. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-446645440000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-446055440000",
+                    "title": "Curso de Electricidad",
+                    "popularity": 4.5,
+                    "expert": "Mike Holt",
+                    "image": "https://picsum.photos/200/185?random=5",
+                    "price": 170000,
+                    "duration": 27.2,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Descubre las técnicas más avanzadas para dominar esta habilidad y destacar en el mercado laboral actual.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Descubre los secretos de curso de electricidad con Mike Holt. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en desarrollo personal.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-446055440000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-443655440000",
+                    "title": "Curso de Mecánica Automotriz",
+                    "popularity": 4.3,
+                    "expert": "Scotty Kilmer",
+                    "image": "https://picsum.photos/200/185?random=6",
+                    "price": 140000,
+                    "duration": 51.0,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Domina curso de mecánica automotriz con Scotty Kilmer, uno de los expertos más reconocidos en desarrollo personal. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-443655440000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-4466575440000",
+                    "title": "Curso de Soldadura",
+                    "popularity": 4.4,
+                    "expert": "Weld.com",
+                    "image": "https://picsum.photos/200/185?random=7",
+                    "price": 260000,
+                    "duration": 85.2,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Aprende curso de soldadura de la mano de Weld.com. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-4466575440000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-446655340000",
+                    "title": "Curso de Albañilería",
+                    "popularity": 4.3,
+                    "expert": "This Old House",
+                    "image": "https://picsum.photos/200/185?random=8",
+                    "price": 60000,
+                    "duration": 35.0,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Estrategias reales y casos de exito para aplicar inmediatamente en tu vida profesional.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Domina curso de albañilería con This Old House, uno de los expertos más reconocidos en desarrollo personal. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-446655340000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-446658440000",
+                    "title": "Curso de Cerrajería",
+                    "popularity": 4.2,
+                    "expert": "Locksmith Training",
+                    "image": "https://picsum.photos/200/185?random=9",
+                    "price": 390000,
+                    "duration": 55.9,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Aprende curso de cerrajería de la mano de Locksmith Training. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-446658440000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-446655450000",
+                    "title": "Curso de Pintura y Decoración",
+                    "popularity": 4.5,
+                    "expert": "Home Depot",
+                    "image": "https://picsum.photos/200/185?random=10",
+                    "price": 390000,
+                    "duration": 22.2,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/Y8Tko2YC5hA",
+                    "introText": "Home Depot te enseña todo sobre curso de pintura y decoración en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-446655450000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-446655443000",
+                    "title": "Curso de Reparación de Electrodomésticos",
+                    "popularity": 4.3,
+                    "expert": "Repair Clinic",
+                    "image": "https://picsum.photos/200/185?random=11",
+                    "price": 420000,
+                    "duration": 37.9,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Domina curso de reparación de electrodomésticos con Repair Clinic, uno de los expertos más reconocidos en desarrollo personal. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-446655443000"
+                },
+                {
+                    "id": "550e8400-e29b-41d4-a716-446655449000",
+                    "title": "Curso de Fontanería",
+                    "popularity": 4.4,
+                    "expert": "Plumbing Academy",
+                    "image": "https://picsum.photos/200/185?random=12",
+                    "price": 60000,
+                    "duration": 21.0,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420000",
+                    "headline": "Aprende los secretos mejor guardados de la industria y crea proyectos impactantes.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/Y8Tko2YC5hA",
+                    "introText": "Descubre los secretos de curso de fontanería con Plumbing Academy. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en desarrollo personal.",
+                    "paymentLink": "https://example.com/payment/550e8400-e29b-41d4-a716-446655449000"
+                }
+            ]
         },
         {
-          "id": "660e8400-e29b-41d4-a716-446655440002",
-          "title": "Curso de Improvisación",
-          "popularity": 4.7,
-          "expert": "Tina Fey",
-          "image": "https://picsum.photos/200/185?random=14"
+            "id": "550e8400-e29b-41d4-a716-446655420001",
+            "title": "Comedia y Humor",
+            "description": "La comedia es más que hacer reír, es una forma de conectar, liberar tensiones y transformar lo cotidiano en algo extraordinario. Te enseñamos desde los principios del humor hasta las técnicas avanzadas de improvisación, escritura y actuación.",
+            "courses": [
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440001",
+                    "title": "Curso de Stand-Up Comedy",
+                    "popularity": 4.6,
+                    "expert": "Jerry Seinfeld",
+                    "image": "https://picsum.photos/200/185?random=13",
+                    "price": 330000,
+                    "duration": 86.4,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Transforma tu carrera profesional con conocimientos prácticos y aplicables desde la primera lección.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    "introText": "Jerry Seinfeld te enseña todo sobre curso de stand-up comedy en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/660e8400-e29b-41d4-a716-446655440001"
+                },
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440002",
+                    "title": "Curso de Improvisación",
+                    "popularity": 4.7,
+                    "expert": "Tina Fey",
+                    "image": "https://picsum.photos/200/185?random=14",
+                    "price": 500000,
+                    "duration": 26.3,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Estrategias reales y casos de exito para aplicar inmediatamente en tu vida profesional.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Aprende el arte de la improvisación con una de las mejores comediantes del mundo. Este curso te enseñará a pensar rápido, crear personajes memorables y desarrollar escenas cómicas en el momento. Perfecto tanto para actores como para profesionales que quieren mejorar su creatividad y espontaneidad.",
+                    "paymentLink": "https://example.com/payment/improvisacion"
+                },
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440003",
+                    "title": "Curso de Guion de Comedia",
+                    "popularity": 4.5,
+                    "expert": "Larry David",
+                    "image": "https://picsum.photos/200/185?random=15",
+                    "price": 390000,
+                    "duration": 33.5,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Descubre los secretos de curso de guion de comedia con Larry David. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en comedia y humor.",
+                    "paymentLink": "https://example.com/payment/660e8400-e29b-41d4-a716-446655440003"
+                },
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440004",
+                    "title": "Curso de Comedia Física",
+                    "popularity": 4.4,
+                    "expert": "Jim Carrey",
+                    "image": "https://picsum.photos/200/185?random=16",
+                    "price": 230000,
+                    "duration": 94.7,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Domina curso de comedia física con Jim Carrey, uno de los expertos más reconocidos en comedia y humor. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/660e8400-e29b-41d4-a716-446655440004"
+                },
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440005",
+                    "title": "Curso de Monólogos",
+                    "popularity": 4.6,
+                    "expert": "Ellen DeGeneres",
+                    "image": "https://picsum.photos/200/185?random=17",
+                    "price": 280000,
+                    "duration": 10.1,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Domina la teoría y la práctica con este curso intensivo que cambiará tu perspectiva.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "En este curso de curso de monólogos, Ellen DeGeneres te guiará a través de un recorrido completo que transformará tu manera de abordar comedia y humor. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/660e8400-e29b-41d4-a716-446655440005"
+                },
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440006",
+                    "title": "Curso de Comedia Satírica",
+                    "popularity": 4.5,
+                    "expert": "John Oliver",
+                    "image": "https://picsum.photos/200/185?random=18",
+                    "price": 320000,
+                    "duration": 48.2,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Aprende curso de comedia satírica de la mano de John Oliver. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/660e8400-e29b-41d4-a716-446655440006"
+                },
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440007",
+                    "title": "Curso de Comedia Musical",
+                    "popularity": 4.3,
+                    "expert": "Bo Burnham",
+                    "image": "https://picsum.photos/200/185?random=19",
+                    "price": 340000,
+                    "duration": 13.4,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Descubre las técnicas más avanzadas para dominar esta habilidad y destacar en el mercado laboral actual.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Aprende curso de comedia musical de la mano de Bo Burnham. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/660e8400-e29b-41d4-a716-446655440007"
+                },
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440008",
+                    "title": "Curso de Comedia de Sketch",
+                    "popularity": 4.4,
+                    "expert": "Key & Peele",
+                    "image": "https://picsum.photos/200/185?random=20",
+                    "price": 320000,
+                    "duration": 53.8,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "En este curso de curso de comedia de sketch, Key & Peele te guiará a través de un recorrido completo que transformará tu manera de abordar comedia y humor. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/660e8400-e29b-41d4-a716-446655440008"
+                },
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440009",
+                    "title": "Curso de Comedia de Situación",
+                    "popularity": 4.5,
+                    "expert": "Chuck Lorre",
+                    "image": "https://picsum.photos/200/185?random=21",
+                    "price": 80000,
+                    "duration": 52.3,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Estrategias reales y casos de exito para aplicar inmediatamente en tu vida profesional.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/6Af6b_wyiwI",
+                    "introText": "Descubre los secretos de curso de comedia de situación con Chuck Lorre. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en comedia y humor.",
+                    "paymentLink": "https://example.com/payment/660e8400-e29b-41d4-a716-446655440009"
+                },
+                {
+                    "id": "660e8400-e29b-41d4-a716-446655440010",
+                    "title": "Curso de Comedia de Observación",
+                    "popularity": 4.6,
+                    "expert": "George Carlin",
+                    "image": "https://picsum.photos/200/185?random=22",
+                    "price": 150000,
+                    "duration": 28.0,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420001",
+                    "headline": "Descubre las técnicas más avanzadas para dominar esta habilidad y destacar en el mercado laboral actual.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Descubre los secretos de curso de comedia de observación con George Carlin. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en comedia y humor.",
+                    "paymentLink": "https://example.com/payment/660e8400-e29b-41d4-a716-446655440010"
+                }
+            ]
         },
         {
-          "id": "660e8400-e29b-41d4-a716-446655440003",
-          "title": "Curso de Guion de Comedia",
-          "popularity": 4.5,
-          "expert": "Larry David",
-          "image": "https://picsum.photos/200/185?random=15"
+            "id": "550e8400-e29b-41d4-a716-446655420002",
+            "title": "Tecnología y programación",
+            "description": "Aprende a crear soluciones tecnológicas, resuelve problemas complejos y adquiere habilidades que están en alta demanda en el mercado laboral. ¡Empieza a programar hoy y da el primer paso hacia un futuro lleno de posibilidades!",
+            "courses": [
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440011",
+                    "title": "Curso de Python",
+                    "popularity": 4.8,
+                    "expert": "Guido van Rossum",
+                    "image": "https://picsum.photos/200/185?random=23",
+                    "price": 270000,
+                    "duration": 61.3,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "Domina la teoría y la práctica con este curso intensivo que cambiará tu perspectiva.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/Y8Tko2YC5hA",
+                    "introText": "Domina Python desde cero hasta nivel avanzado con el creador del lenguaje. Aprenderás desde sintaxis básica hasta desarrollo de aplicaciones complejas, machine learning y automatización. Este curso está diseñado para convertirte en un desarrollador Python completo con habilidades demandadas en el mercado.",
+                    "paymentLink": "https://example.com/payment/python"
+                },
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440012",
+                    "title": "Curso de JavaScript",
+                    "popularity": 4.7,
+                    "expert": "Brendan Eich",
+                    "image": "https://picsum.photos/200/185?random=24",
+                    "price": 440000,
+                    "duration": 63.7,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Descubre los secretos de curso de javascript con Brendan Eich. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en tecnología y programación.",
+                    "paymentLink": "https://example.com/payment/770e8400-e29b-41d4-a716-446655440012"
+                },
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440013",
+                    "title": "Curso de Java",
+                    "popularity": 4.6,
+                    "expert": "James Gosling",
+                    "image": "https://picsum.photos/200/185?random=25",
+                    "price": 450000,
+                    "duration": 58.6,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "El curso definitivo para quienes buscan excelencia y resultados tangibles.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "James Gosling te enseña todo sobre curso de java en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/770e8400-e29b-41d4-a716-446655440013"
+                },
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440014",
+                    "title": "Curso de C++",
+                    "popularity": 4.5,
+                    "expert": "Bjarne Stroustrup",
+                    "image": "https://picsum.photos/200/185?random=26",
+                    "price": 410000,
+                    "duration": 94.0,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    "introText": "Bjarne Stroustrup te enseña todo sobre curso de c++ en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/770e8400-e29b-41d4-a716-446655440014"
+                },
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440015",
+                    "title": "Curso de C#",
+                    "popularity": 4.6,
+                    "expert": "Anders Hejlsberg",
+                    "image": "https://picsum.photos/200/185?random=27",
+                    "price": 460000,
+                    "duration": 26.0,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Descubre los secretos de curso de c# con Anders Hejlsberg. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en tecnología y programación.",
+                    "paymentLink": "https://example.com/payment/770e8400-e29b-41d4-a716-446655440015"
+                },
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440016",
+                    "title": "Curso de Ruby",
+                    "popularity": 4.4,
+                    "expert": "Yukihiro Matsumoto",
+                    "image": "https://picsum.photos/200/185?random=28",
+                    "price": 250000,
+                    "duration": 75.6,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "Domina la teoría y la práctica con este curso intensivo que cambiará tu perspectiva.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "En este curso de curso de ruby, Yukihiro Matsumoto te guiará a través de un recorrido completo que transformará tu manera de abordar tecnología y programación. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/770e8400-e29b-41d4-a716-446655440016"
+                },
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440017",
+                    "title": "Curso de PHP",
+                    "popularity": 4.3,
+                    "expert": "Rasmus Lerdorf",
+                    "image": "https://picsum.photos/200/185?random=29",
+                    "price": 340000,
+                    "duration": 50.8,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "El curso definitivo para quienes buscan excelencia y resultados tangibles.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Rasmus Lerdorf te enseña todo sobre curso de php en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/770e8400-e29b-41d4-a716-446655440017"
+                },
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440018",
+                    "title": "Curso de Swift",
+                    "popularity": 4.5,
+                    "expert": "Chris Lattner",
+                    "image": "https://picsum.photos/200/185?random=30",
+                    "price": 180000,
+                    "duration": 90.1,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Chris Lattner te enseña todo sobre curso de swift en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/770e8400-e29b-41d4-a716-446655440018"
+                },
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440019",
+                    "title": "Curso de Go",
+                    "popularity": 4.6,
+                    "expert": "Robert Griesemer",
+                    "image": "https://picsum.photos/200/185?random=31",
+                    "price": 80000,
+                    "duration": 9.8,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Robert Griesemer te enseña todo sobre curso de go en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/770e8400-e29b-41d4-a716-446655440019"
+                },
+                {
+                    "id": "770e8400-e29b-41d4-a716-446655440020",
+                    "title": "Curso de Kotlin",
+                    "popularity": 4.7,
+                    "expert": "JetBrains",
+                    "image": "https://picsum.photos/200/185?random=32",
+                    "price": 50000,
+                    "duration": 38.0,
+                    "categoryId": "550e8400-e29b-41d4-a716-446655420002",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "En este curso de curso de kotlin, JetBrains te guiará a través de un recorrido completo que transformará tu manera de abordar tecnología y programación. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/770e8400-e29b-41d4-a716-446655440020"
+                }
+            ]
         },
         {
-          "id": "660e8400-e29b-41d4-a716-446655440004",
-          "title": "Curso de Comedia Física",
-          "popularity": 4.4,
-          "expert": "Jim Carrey",
-          "image": "https://picsum.photos/200/185?random=16"
+            "id": "afb80185-a93a-469a-87cd-bdb7bfad651a",
+            "title": "Tecnología y Programación",
+            "description": "Cursos para aprender sobre tecnología y programación.",
+            "courses": [
+                {
+                    "id": "8336aa28-60a3-4380-b58a-891d2a5ab379",
+                    "title": "Masterclass Tecnología y Programación 1",
+                    "popularity": 3.6,
+                    "expert": "Carlos Pérez",
+                    "image": "https://picsum.photos/200/185?random=304",
+                    "price": 300000,
+                    "duration": 62.8,
+                    "categoryId": "afb80185-a93a-469a-87cd-bdb7bfad651a",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Domina masterclass tecnología y programación 1 con Carlos Pérez, uno de los expertos más reconocidos en tecnología y programación. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/8336aa28-60a3-4380-b58a-891d2a5ab379"
+                },
+                {
+                    "id": "7927c5c4-978d-41dc-ae95-04973c39b0e0",
+                    "title": "Experto en Tecnología y Programación 2",
+                    "popularity": 3.6,
+                    "expert": "Juan Martínez",
+                    "image": "https://picsum.photos/200/185?random=674",
+                    "price": 350000,
+                    "duration": 44.1,
+                    "categoryId": "afb80185-a93a-469a-87cd-bdb7bfad651a",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "En este curso de experto en tecnología y programación 2, Juan Martínez te guiará a través de un recorrido completo que transformará tu manera de abordar tecnología y programación. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/7927c5c4-978d-41dc-ae95-04973c39b0e0"
+                },
+                {
+                    "id": "754a59fc-fc22-420c-b2ee-3082dec0b6ff",
+                    "title": "Fundamentos Tecnología y Programación 3",
+                    "popularity": 3.7,
+                    "expert": "Javier López",
+                    "image": "https://picsum.photos/200/185?random=877",
+                    "price": 200000,
+                    "duration": 51.5,
+                    "categoryId": "afb80185-a93a-469a-87cd-bdb7bfad651a",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    "introText": "Domina fundamentos tecnología y programación 3 con Javier López, uno de los expertos más reconocidos en tecnología y programación. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/754a59fc-fc22-420c-b2ee-3082dec0b6ff"
+                },
+                {
+                    "id": "3bfbfca4-9a72-4914-a328-e4d5d060f522",
+                    "title": "Avanzado Tecnología y Programación 4",
+                    "popularity": 4.4,
+                    "expert": "Juan Ramirez",
+                    "image": "https://picsum.photos/200/185?random=834",
+                    "price": 120000,
+                    "duration": 13.1,
+                    "categoryId": "afb80185-a93a-469a-87cd-bdb7bfad651a",
+                    "headline": "Descubre las técnicas más avanzadas para dominar esta habilidad y destacar en el mercado laboral actual.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/6Af6b_wyiwI",
+                    "introText": "En este curso de avanzado tecnología y programación 4, Juan Ramirez te guiará a través de un recorrido completo que transformará tu manera de abordar tecnología y programación. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/3bfbfca4-9a72-4914-a328-e4d5d060f522"
+                },
+                {
+                    "id": "478259d8-b92e-4015-9833-ff200bf6f4e5",
+                    "title": "Avanzado Tecnología y Programación 5",
+                    "popularity": 4.4,
+                    "expert": "Sebastián Torres",
+                    "image": "https://picsum.photos/200/185?random=647",
+                    "price": 200000,
+                    "duration": 34.7,
+                    "categoryId": "afb80185-a93a-469a-87cd-bdb7bfad651a",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/Y8Tko2YC5hA",
+                    "introText": "En este curso de avanzado tecnología y programación 5, Sebastián Torres te guiará a través de un recorrido completo que transformará tu manera de abordar tecnología y programación. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/478259d8-b92e-4015-9833-ff200bf6f4e5"
+                }
+            ]
         },
         {
-          "id": "660e8400-e29b-41d4-a716-446655440005",
-          "title": "Curso de Monólogos",
-          "popularity": 4.6,
-          "expert": "Ellen DeGeneres",
-          "image": "https://picsum.photos/200/185?random=17"
+            "id": "9dd43a8d-623b-4774-a9ef-8180e12b77c7",
+            "title": "Negocios y Emprendimiento",
+            "description": "Cursos diseñados para ayudarte a crecer y desarrollarte en el mundo de los negocios y el emprendimiento.",
+            "courses": [
+                {
+                    "id": "7e2c3929-b911-4ac9-b705-0b41e397be08",
+                    "title": "Masterclass Negocios y Emprendimiento 1",
+                    "popularity": 4.7,
+                    "expert": "Laura Gómez",
+                    "image": "https://picsum.photos/200/185?random=548",
+                    "price": 220000,
+                    "duration": 20.2,
+                    "categoryId": "9dd43a8d-623b-4774-a9ef-8180e12b77c7",
+                    "headline": "El curso definitivo para quienes buscan excelencia y resultados tangibles.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/6Af6b_wyiwI",
+                    "introText": "En este curso de masterclass negocios y emprendimiento 1, Laura Gómez te guiará a través de un recorrido completo que transformará tu manera de abordar negocios y emprendimiento. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/7e2c3929-b911-4ac9-b705-0b41e397be08"
+                },
+                {
+                    "id": "62983eba-a27f-4ac1-a39b-eefad8f539ca",
+                    "title": "Taller Práctico Negocios y Emprendimiento 2",
+                    "popularity": 3.6,
+                    "expert": "Carlos Pérez",
+                    "image": "https://picsum.photos/200/185?random=377",
+                    "price": 280000,
+                    "duration": 68.2,
+                    "categoryId": "9dd43a8d-623b-4774-a9ef-8180e12b77c7",
+                    "headline": "Descubre las técnicas más avanzadas para dominar esta habilidad y destacar en el mercado laboral actual.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Domina taller práctico negocios y emprendimiento 2 con Carlos Pérez, uno de los expertos más reconocidos en negocios y emprendimiento. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/62983eba-a27f-4ac1-a39b-eefad8f539ca"
+                },
+                {
+                    "id": "1405dbc9-b935-473d-a175-6b29a5269585",
+                    "title": "Fundamentos Negocios y Emprendimiento 3",
+                    "popularity": 4.6,
+                    "expert": "Expert Placeholder",
+                    "image": "https://picsum.photos/200/185?random=146",
+                    "price": 470000,
+                    "duration": 93.3,
+                    "categoryId": "9dd43a8d-623b-4774-a9ef-8180e12b77c7",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Expert Placeholder te enseña todo sobre fundamentos negocios y emprendimiento 3 en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/1405dbc9-b935-473d-a175-6b29a5269585"
+                },
+                {
+                    "id": "e47e0899-0f84-491d-b4e0-021114cb90d9",
+                    "title": "Experto en Negocios y Emprendimiento 4",
+                    "popularity": 4.2,
+                    "expert": "Alexander Diaz",
+                    "image": "https://picsum.photos/200/185?random=377",
+                    "price": 70000,
+                    "duration": 28.6,
+                    "categoryId": "9dd43a8d-623b-4774-a9ef-8180e12b77c7",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Alexander Diaz te enseña todo sobre experto en negocios y emprendimiento 4 en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/e47e0899-0f84-491d-b4e0-021114cb90d9"
+                }
+            ]
         },
         {
-          "id": "660e8400-e29b-41d4-a716-446655440006",
-          "title": "Curso de Comedia Satírica",
-          "popularity": 4.5,
-          "expert": "John Oliver",
-          "image": "https://picsum.photos/200/185?random=18"
+            "id": "85fe410f-8af8-40e7-a540-8c2f42a1eabe",
+            "title": "Diseño y Creatividad",
+            "description": "Desarrolla tus habilidades en diseño y creatividad con estos cursos.",
+            "courses": [
+                {
+                    "id": "ba06e0d1-0009-4023-97ed-c1917e09959f",
+                    "title": "Introducción Diseño y Creatividad 1",
+                    "popularity": 4.5,
+                    "expert": "Juan Martínez",
+                    "image": "https://picsum.photos/200/185?random=800",
+                    "price": 60000,
+                    "duration": 57.1,
+                    "categoryId": "85fe410f-8af8-40e7-a540-8c2f42a1eabe",
+                    "headline": "Estrategias reales y casos de exito para aplicar inmediatamente en tu vida profesional.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    "introText": "Descubre los secretos de introducción diseño y creatividad 1 con Juan Martínez. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en diseño y creatividad.",
+                    "paymentLink": "https://example.com/payment/ba06e0d1-0009-4023-97ed-c1917e09959f"
+                },
+                {
+                    "id": "72621e65-818a-4ee7-a1b7-d91719560d32",
+                    "title": "Avanzado Diseño y Creatividad 2",
+                    "popularity": 4.2,
+                    "expert": "Expert Placeholder",
+                    "image": "https://picsum.photos/200/185?random=545",
+                    "price": 150000,
+                    "duration": 84.6,
+                    "categoryId": "85fe410f-8af8-40e7-a540-8c2f42a1eabe",
+                    "headline": "Descubre las técnicas más avanzadas para dominar esta habilidad y destacar en el mercado laboral actual.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "En este curso de avanzado diseño y creatividad 2, Expert Placeholder te guiará a través de un recorrido completo que transformará tu manera de abordar diseño y creatividad. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/72621e65-818a-4ee7-a1b7-d91719560d32"
+                },
+                {
+                    "id": "749b1c85-0082-475f-b60a-2fa77f405ae0",
+                    "title": "Taller Práctico Diseño y Creatividad 3",
+                    "popularity": 3.7,
+                    "expert": "Sebastián Torres",
+                    "image": "https://picsum.photos/200/185?random=374",
+                    "price": 460000,
+                    "duration": 77.6,
+                    "categoryId": "85fe410f-8af8-40e7-a540-8c2f42a1eabe",
+                    "headline": "El curso definitivo para quienes buscan excelencia y resultados tangibles.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/6Af6b_wyiwI",
+                    "introText": "Sebastián Torres te enseña todo sobre taller práctico diseño y creatividad 3 en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/749b1c85-0082-475f-b60a-2fa77f405ae0"
+                },
+                {
+                    "id": "d986473b-636e-439f-92ec-456aa36c7a45",
+                    "title": "Avanzado Diseño y Creatividad 4",
+                    "popularity": 4.6,
+                    "expert": "Valeria Mendoza",
+                    "image": "https://picsum.photos/200/185?random=500",
+                    "price": 70000,
+                    "duration": 69.0,
+                    "categoryId": "85fe410f-8af8-40e7-a540-8c2f42a1eabe",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/6Af6b_wyiwI",
+                    "introText": "Descubre los secretos de avanzado diseño y creatividad 4 con Valeria Mendoza. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en diseño y creatividad.",
+                    "paymentLink": "https://example.com/payment/d986473b-636e-439f-92ec-456aa36c7a45"
+                },
+                {
+                    "id": "b2fd83fb-9dc1-44d1-bf7c-a892f789b0fd",
+                    "title": "Introducción Diseño y Creatividad 5",
+                    "popularity": 4.7,
+                    "expert": "Dr. Smith",
+                    "image": "https://picsum.photos/200/185?random=199",
+                    "price": 90000,
+                    "duration": 7.1,
+                    "categoryId": "85fe410f-8af8-40e7-a540-8c2f42a1eabe",
+                    "headline": "Estrategias reales y casos de exito para aplicar inmediatamente en tu vida profesional.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/6Af6b_wyiwI",
+                    "introText": "Descubre los secretos de introducción diseño y creatividad 5 con Dr. Smith. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en diseño y creatividad.",
+                    "paymentLink": "https://example.com/payment/b2fd83fb-9dc1-44d1-bf7c-a892f789b0fd"
+                },
+                {
+                    "id": "c3bdd363-d4ac-41e0-9c50-65a5d1b5be40",
+                    "title": "Experto en Diseño y Creatividad 6",
+                    "popularity": 3.7,
+                    "expert": "Laura Gómez",
+                    "image": "https://picsum.photos/200/185?random=776",
+                    "price": 140000,
+                    "duration": 73.9,
+                    "categoryId": "85fe410f-8af8-40e7-a540-8c2f42a1eabe",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Descubre los secretos de experto en diseño y creatividad 6 con Laura Gómez. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en diseño y creatividad.",
+                    "paymentLink": "https://example.com/payment/c3bdd363-d4ac-41e0-9c50-65a5d1b5be40"
+                }
+            ]
         },
         {
-          "id": "660e8400-e29b-41d4-a716-446655440007",
-          "title": "Curso de Comedia Musical",
-          "popularity": 4.3,
-          "expert": "Bo Burnham",
-          "image": "https://picsum.photos/200/185?random=19"
+            "id": "92d35b9c-d4dd-4f62-9c5b-0aa73e859e9d",
+            "title": "Ciencia y Matemáticas",
+            "description": "Explora el mundo de la ciencia y las matemáticas con estos cursos.",
+            "courses": [
+                {
+                    "id": "99cbe416-fcf7-4463-ae3c-4b7d8449985a",
+                    "title": "Introducción Ciencia y Matemáticas 1",
+                    "popularity": 3.8,
+                    "expert": "Javier López",
+                    "image": "https://picsum.photos/200/185?random=233",
+                    "price": 140000,
+                    "duration": 99.2,
+                    "categoryId": "92d35b9c-d4dd-4f62-9c5b-0aa73e859e9d",
+                    "headline": "Transforma tu carrera profesional con conocimientos prácticos y aplicables desde la primera lección.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Aprende introducción ciencia y matemáticas 1 de la mano de Javier López. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/99cbe416-fcf7-4463-ae3c-4b7d8449985a"
+                },
+                {
+                    "id": "617fef32-4b98-44ea-893c-82d1078c959e",
+                    "title": "Experto en Ciencia y Matemáticas 2",
+                    "popularity": 4.1,
+                    "expert": "Sofía Pérez",
+                    "image": "https://picsum.photos/200/185?random=429",
+                    "price": 200000,
+                    "duration": 46.0,
+                    "categoryId": "92d35b9c-d4dd-4f62-9c5b-0aa73e859e9d",
+                    "headline": "Aprende los secretos mejor guardados de la industria y crea proyectos impactantes.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Aprende experto en ciencia y matemáticas 2 de la mano de Sofía Pérez. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/617fef32-4b98-44ea-893c-82d1078c959e"
+                },
+                {
+                    "id": "543392a3-9e43-44ac-ae7a-b737caa8e94c",
+                    "title": "Experto en Ciencia y Matemáticas 3",
+                    "popularity": 3.6,
+                    "expert": "Juan Martínez",
+                    "image": "https://picsum.photos/200/185?random=800",
+                    "price": 370000,
+                    "duration": 36.8,
+                    "categoryId": "92d35b9c-d4dd-4f62-9c5b-0aa73e859e9d",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Aprende experto en ciencia y matemáticas 3 de la mano de Juan Martínez. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/543392a3-9e43-44ac-ae7a-b737caa8e94c"
+                },
+                {
+                    "id": "96eea5e4-a014-4dd2-85c7-5efad30a5eda",
+                    "title": "Fundamentos Ciencia y Matemáticas 4",
+                    "popularity": 4.1,
+                    "expert": "Juan Martínez",
+                    "image": "https://picsum.photos/200/185?random=841",
+                    "price": 230000,
+                    "duration": 95.6,
+                    "categoryId": "92d35b9c-d4dd-4f62-9c5b-0aa73e859e9d",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Juan Martínez te enseña todo sobre fundamentos ciencia y matemáticas 4 en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/96eea5e4-a014-4dd2-85c7-5efad30a5eda"
+                }
+            ]
         },
         {
-          "id": "660e8400-e29b-41d4-a716-446655440008",
-          "title": "Curso de Comedia de Sketch",
-          "popularity": 4.4,
-          "expert": "Key & Peele",
-          "image": "https://picsum.photos/200/185?random=20"
+            "id": "1fd653e4-2dbf-4c35-9872-d5e4af02e08d",
+            "title": "Idiomas y Comunicación",
+            "description": "Cursos para aprender nuevos idiomas y mejorar tus habilidades de comunicación.",
+            "courses": [
+                {
+                    "id": "b93c147d-32da-42bc-9ea6-c22cf8264ed8",
+                    "title": "Experto en Idiomas y Comunicación 1",
+                    "popularity": 3.5,
+                    "expert": "Expert Placeholder",
+                    "image": "https://picsum.photos/200/185?random=503",
+                    "price": 90000,
+                    "duration": 24.1,
+                    "categoryId": "1fd653e4-2dbf-4c35-9872-d5e4af02e08d",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "En este curso de experto en idiomas y comunicación 1, Expert Placeholder te guiará a través de un recorrido completo que transformará tu manera de abordar idiomas y comunicación. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/b93c147d-32da-42bc-9ea6-c22cf8264ed8"
+                },
+                {
+                    "id": "f55cbae0-6b7a-4962-a5d3-6d616a59a55c",
+                    "title": "Fundamentos Idiomas y Comunicación 2",
+                    "popularity": 3.5,
+                    "expert": "Juan Martínez",
+                    "image": "https://picsum.photos/200/185?random=399",
+                    "price": 150000,
+                    "duration": 24.3,
+                    "categoryId": "1fd653e4-2dbf-4c35-9872-d5e4af02e08d",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/Y8Tko2YC5hA",
+                    "introText": "Juan Martínez te enseña todo sobre fundamentos idiomas y comunicación 2 en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/f55cbae0-6b7a-4962-a5d3-6d616a59a55c"
+                },
+                {
+                    "id": "82807506-ef8f-4c9f-a853-569f987a3d42",
+                    "title": "Experto en Idiomas y Comunicación 3",
+                    "popularity": 5.0,
+                    "expert": "Prof. Doe",
+                    "image": "https://picsum.photos/200/185?random=802",
+                    "price": 430000,
+                    "duration": 22.0,
+                    "categoryId": "1fd653e4-2dbf-4c35-9872-d5e4af02e08d",
+                    "headline": "Aprende los secretos mejor guardados de la industria y crea proyectos impactantes.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "En este curso de experto en idiomas y comunicación 3, Prof. Doe te guiará a través de un recorrido completo que transformará tu manera de abordar idiomas y comunicación. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/82807506-ef8f-4c9f-a853-569f987a3d42"
+                },
+                {
+                    "id": "277b671d-20f1-4e44-b2f1-31a60aaf1953",
+                    "title": "Taller Práctico Idiomas y Comunicación 4",
+                    "popularity": 3.7,
+                    "expert": "Alexander Diaz",
+                    "image": "https://picsum.photos/200/185?random=867",
+                    "price": 150000,
+                    "duration": 82.4,
+                    "categoryId": "1fd653e4-2dbf-4c35-9872-d5e4af02e08d",
+                    "headline": "Transforma tu carrera profesional con conocimientos prácticos y aplicables desde la primera lección.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Descubre los secretos de taller práctico idiomas y comunicación 4 con Alexander Diaz. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en idiomas y comunicación.",
+                    "paymentLink": "https://example.com/payment/277b671d-20f1-4e44-b2f1-31a60aaf1953"
+                },
+                {
+                    "id": "9ca9472c-d57f-435b-a61d-a2f8c41be472",
+                    "title": "Masterclass Idiomas y Comunicación 5",
+                    "popularity": 3.7,
+                    "expert": "Expert Placeholder",
+                    "image": "https://picsum.photos/200/185?random=213",
+                    "price": 450000,
+                    "duration": 93.0,
+                    "categoryId": "1fd653e4-2dbf-4c35-9872-d5e4af02e08d",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Domina masterclass idiomas y comunicación 5 con Expert Placeholder, uno de los expertos más reconocidos en idiomas y comunicación. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/9ca9472c-d57f-435b-a61d-a2f8c41be472"
+                }
+            ]
         },
         {
-          "id": "660e8400-e29b-41d4-a716-446655440009",
-          "title": "Curso de Comedia de Situación",
-          "popularity": 4.5,
-          "expert": "Chuck Lorre",
-          "image": "https://picsum.photos/200/185?random=21"
+            "id": "cf65ffc4-be5b-41c5-9f7b-84f6a3790038",
+            "title": "Arte y Música",
+            "description": "Desarrolla tus habilidades artísticas y musicales con estos cursos.",
+            "courses": [
+                {
+                    "id": "5b567b64-753d-450f-8b65-d8eda46dea21",
+                    "title": "Fundamentos Arte y Música 1",
+                    "popularity": 4.6,
+                    "expert": "Alexander Diaz",
+                    "image": "https://picsum.photos/200/185?random=467",
+                    "price": 190000,
+                    "duration": 10.9,
+                    "categoryId": "cf65ffc4-be5b-41c5-9f7b-84f6a3790038",
+                    "headline": "Domina la teoría y la práctica con este curso intensivo que cambiará tu perspectiva.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Domina fundamentos arte y música 1 con Alexander Diaz, uno de los expertos más reconocidos en arte y música. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/5b567b64-753d-450f-8b65-d8eda46dea21"
+                },
+                {
+                    "id": "bc47718c-73d2-44e0-9042-ffb1fa355192",
+                    "title": "Avanzado Arte y Música 2",
+                    "popularity": 4.1,
+                    "expert": "Sebastián Torres",
+                    "image": "https://picsum.photos/200/185?random=534",
+                    "price": 60000,
+                    "duration": 85.1,
+                    "categoryId": "cf65ffc4-be5b-41c5-9f7b-84f6a3790038",
+                    "headline": "Descubre las técnicas más avanzadas para dominar esta habilidad y destacar en el mercado laboral actual.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "En este curso de avanzado arte y música 2, Sebastián Torres te guiará a través de un recorrido completo que transformará tu manera de abordar arte y música. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/bc47718c-73d2-44e0-9042-ffb1fa355192"
+                },
+                {
+                    "id": "8a9dd3a9-2b6b-429a-9a98-ac8fd1c1c182",
+                    "title": "Experto en Arte y Música 3",
+                    "popularity": 4.1,
+                    "expert": "Juan Ramirez",
+                    "image": "https://picsum.photos/200/185?random=814",
+                    "price": 60000,
+                    "duration": 69.2,
+                    "categoryId": "cf65ffc4-be5b-41c5-9f7b-84f6a3790038",
+                    "headline": "Estrategias reales y casos de exito para aplicar inmediatamente en tu vida profesional.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Descubre los secretos de experto en arte y música 3 con Juan Ramirez. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en arte y música.",
+                    "paymentLink": "https://example.com/payment/8a9dd3a9-2b6b-429a-9a98-ac8fd1c1c182"
+                },
+                {
+                    "id": "16078fed-dea1-456a-998c-208e76fc5e92",
+                    "title": "Fundamentos Arte y Música 4",
+                    "popularity": 4.6,
+                    "expert": "Prof. Doe",
+                    "image": "https://picsum.photos/200/185?random=371",
+                    "price": 330000,
+                    "duration": 60.5,
+                    "categoryId": "cf65ffc4-be5b-41c5-9f7b-84f6a3790038",
+                    "headline": "Domina la teoría y la práctica con este curso intensivo que cambiará tu perspectiva.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Domina fundamentos arte y música 4 con Prof. Doe, uno de los expertos más reconocidos en arte y música. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/16078fed-dea1-456a-998c-208e76fc5e92"
+                },
+                {
+                    "id": "a1841dcc-3373-4cc8-8700-50043bf5ca61",
+                    "title": "Fundamentos Arte y Música 5",
+                    "popularity": 4.1,
+                    "expert": "Valeria Mendoza",
+                    "image": "https://picsum.photos/200/185?random=758",
+                    "price": 300000,
+                    "duration": 8.6,
+                    "categoryId": "cf65ffc4-be5b-41c5-9f7b-84f6a3790038",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "Valeria Mendoza te enseña todo sobre fundamentos arte y música 5 en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/a1841dcc-3373-4cc8-8700-50043bf5ca61"
+                }
+            ]
         },
         {
-          "id": "660e8400-e29b-41d4-a716-446655440010",
-          "title": "Curso de Comedia de Observación",
-          "popularity": 4.6,
-          "expert": "George Carlin",
-          "image": "https://picsum.photos/200/185?random=22"
+            "id": "0724ff0d-46e2-4033-aaf6-01e241675d34",
+            "title": "Educación y Pedagogía",
+            "description": "Cursos para mejorar tus habilidades en educación y pedagogía.",
+            "courses": [
+                {
+                    "id": "d89c1591-a8bc-4473-9890-b588b330b086",
+                    "title": "Introducción Educación y Pedagogía 1",
+                    "popularity": 3.6,
+                    "expert": "Juan Ramirez",
+                    "image": "https://picsum.photos/200/185?random=832",
+                    "price": 220000,
+                    "duration": 46.1,
+                    "categoryId": "0724ff0d-46e2-4033-aaf6-01e241675d34",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Domina introducción educación y pedagogía 1 con Juan Ramirez, uno de los expertos más reconocidos en educación y pedagogía. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/d89c1591-a8bc-4473-9890-b588b330b086"
+                },
+                {
+                    "id": "1df182aa-85a1-427d-aaac-0a0c583f75d9",
+                    "title": "Taller Práctico Educación y Pedagogía 2",
+                    "popularity": 4.7,
+                    "expert": "Sofía Pérez",
+                    "image": "https://picsum.photos/200/185?random=272",
+                    "price": 490000,
+                    "duration": 11.7,
+                    "categoryId": "0724ff0d-46e2-4033-aaf6-01e241675d34",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "En este curso de taller práctico educación y pedagogía 2, Sofía Pérez te guiará a través de un recorrido completo que transformará tu manera de abordar educación y pedagogía. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/1df182aa-85a1-427d-aaac-0a0c583f75d9"
+                },
+                {
+                    "id": "b6b4f0be-c832-4410-94e0-774111fb95a2",
+                    "title": "Introducción Educación y Pedagogía 3",
+                    "popularity": 4.2,
+                    "expert": "Juan Martínez",
+                    "image": "https://picsum.photos/200/185?random=167",
+                    "price": 230000,
+                    "duration": 71.8,
+                    "categoryId": "0724ff0d-46e2-4033-aaf6-01e241675d34",
+                    "headline": "Estrategias reales y casos de exito para aplicar inmediatamente en tu vida profesional.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/Y8Tko2YC5hA",
+                    "introText": "Descubre los secretos de introducción educación y pedagogía 3 con Juan Martínez. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en educación y pedagogía.",
+                    "paymentLink": "https://example.com/payment/b6b4f0be-c832-4410-94e0-774111fb95a2"
+                },
+                {
+                    "id": "c3271529-faf6-42a8-8b8c-c18f418a6b8a",
+                    "title": "Experto en Educación y Pedagogía 4",
+                    "popularity": 4.4,
+                    "expert": "Alexander Diaz",
+                    "image": "https://picsum.photos/200/185?random=237",
+                    "price": 160000,
+                    "duration": 84.1,
+                    "categoryId": "0724ff0d-46e2-4033-aaf6-01e241675d34",
+                    "headline": "Domina la teoría y la práctica con este curso intensivo que cambiará tu perspectiva.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/Y8Tko2YC5hA",
+                    "introText": "Alexander Diaz te enseña todo sobre experto en educación y pedagogía 4 en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/c3271529-faf6-42a8-8b8c-c18f418a6b8a"
+                },
+                {
+                    "id": "5b5eb3fa-cc01-481d-ab9f-bfa94d0689ae",
+                    "title": "Taller Práctico Educación y Pedagogía 5",
+                    "popularity": 3.6,
+                    "expert": "Juan Martínez",
+                    "image": "https://picsum.photos/200/185?random=693",
+                    "price": 230000,
+                    "duration": 81.9,
+                    "categoryId": "0724ff0d-46e2-4033-aaf6-01e241675d34",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    "introText": "Juan Martínez te enseña todo sobre taller práctico educación y pedagogía 5 en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/5b5eb3fa-cc01-481d-ab9f-bfa94d0689ae"
+                },
+                {
+                    "id": "af16b140-6cf3-4b3e-9521-9303c0dff558",
+                    "title": "Avanzado Educación y Pedagogía 6",
+                    "popularity": 4.2,
+                    "expert": "Sebastián Torres",
+                    "image": "https://picsum.photos/200/185?random=140",
+                    "price": 50000,
+                    "duration": 18.7,
+                    "categoryId": "0724ff0d-46e2-4033-aaf6-01e241675d34",
+                    "headline": "Domina la teoría y la práctica con este curso intensivo que cambiará tu perspectiva.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "En este curso de avanzado educación y pedagogía 6, Sebastián Torres te guiará a través de un recorrido completo que transformará tu manera de abordar educación y pedagogía. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/af16b140-6cf3-4b3e-9521-9303c0dff558"
+                },
+                {
+                    "id": "939e47af-967b-43c0-ad2b-899b70f81d06",
+                    "title": "Introducción Educación y Pedagogía 7",
+                    "popularity": 3.7,
+                    "expert": "Juan Ramirez",
+                    "image": "https://picsum.photos/200/185?random=949",
+                    "price": 450000,
+                    "duration": 59.7,
+                    "categoryId": "0724ff0d-46e2-4033-aaf6-01e241675d34",
+                    "headline": "Transforma tu carrera profesional con conocimientos prácticos y aplicables desde la primera lección.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/Y8Tko2YC5hA",
+                    "introText": "En este curso de introducción educación y pedagogía 7, Juan Ramirez te guiará a través de un recorrido completo que transformará tu manera de abordar educación y pedagogía. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/939e47af-967b-43c0-ad2b-899b70f81d06"
+                }
+            ]
+        },
+        {
+            "id": "13b6f7f6-06cc-4fca-90c7-70384a3eace4",
+            "title": "Salud y Medicina",
+            "description": "Cursos para aprender sobre salud y medicina.",
+            "courses": [
+                {
+                    "id": "7c1299a7-50fb-413c-9fbc-05f874b9917d",
+                    "title": "Taller Práctico Salud y Medicina 1",
+                    "popularity": 4.0,
+                    "expert": "Valeria Mendoza",
+                    "image": "https://picsum.photos/200/185?random=143",
+                    "price": 320000,
+                    "duration": 81.5,
+                    "categoryId": "13b6f7f6-06cc-4fca-90c7-70384a3eace4",
+                    "headline": "Conviértete en un referente en tu campo aprendiendo de los mejores mentores.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/6Af6b_wyiwI",
+                    "introText": "Descubre los secretos de taller práctico salud y medicina 1 con Valeria Mendoza. Este curso está diseñado para proporcionarte conocimientos profundos y habilidades prácticas que te permitirán sobresalir en salud y medicina.",
+                    "paymentLink": "https://example.com/payment/7c1299a7-50fb-413c-9fbc-05f874b9917d"
+                },
+                {
+                    "id": "7dfdfca6-f1ca-45b8-9344-2eb09ef9e644",
+                    "title": "Experto en Salud y Medicina 2",
+                    "popularity": 4.0,
+                    "expert": "Dr. Smith",
+                    "image": "https://picsum.photos/200/185?random=928",
+                    "price": 190000,
+                    "duration": 17.5,
+                    "categoryId": "13b6f7f6-06cc-4fca-90c7-70384a3eace4",
+                    "headline": "Estrategias reales y casos de exito para aplicar inmediatamente en tu vida profesional.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Aprende experto en salud y medicina 2 de la mano de Dr. Smith. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/7dfdfca6-f1ca-45b8-9344-2eb09ef9e644"
+                },
+                {
+                    "id": "55bb9f6a-62d5-4050-8852-1a8aad71a99f",
+                    "title": "Avanzado Salud y Medicina 3",
+                    "popularity": 5.0,
+                    "expert": "Laura Gómez",
+                    "image": "https://picsum.photos/200/185?random=281",
+                    "price": 280000,
+                    "duration": 64.9,
+                    "categoryId": "13b6f7f6-06cc-4fca-90c7-70384a3eace4",
+                    "headline": "Aprende los secretos mejor guardados de la industria y crea proyectos impactantes.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    "introText": "Laura Gómez te enseña todo sobre avanzado salud y medicina 3 en este programa completo. Desde conceptos básicos hasta estrategias avanzadas, aprenderás las mejores prácticas de la industria y cómo aplicarlas en tu carrera profesional.",
+                    "paymentLink": "https://example.com/payment/55bb9f6a-62d5-4050-8852-1a8aad71a99f"
+                },
+                {
+                    "id": "cbb99d80-3387-46f9-ae87-4008338a99d7",
+                    "title": "Fundamentos Salud y Medicina 4",
+                    "popularity": 5.0,
+                    "expert": "Valeria Mendoza",
+                    "image": "https://picsum.photos/200/185?random=159",
+                    "price": 320000,
+                    "duration": 35.6,
+                    "categoryId": "13b6f7f6-06cc-4fca-90c7-70384a3eace4",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "Domina fundamentos salud y medicina 4 con Valeria Mendoza, uno de los expertos más reconocidos en salud y medicina. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/cbb99d80-3387-46f9-ae87-4008338a99d7"
+                },
+                {
+                    "id": "167a4545-9694-47b9-ae51-503dd95b36d5",
+                    "title": "Experto en Salud y Medicina 5",
+                    "popularity": 4.5,
+                    "expert": "Valeria Mendoza",
+                    "image": "https://picsum.photos/200/185?random=690",
+                    "price": 330000,
+                    "duration": 59.2,
+                    "categoryId": "13b6f7f6-06cc-4fca-90c7-70384a3eace4",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Domina experto en salud y medicina 5 con Valeria Mendoza, uno de los expertos más reconocidos en salud y medicina. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/167a4545-9694-47b9-ae51-503dd95b36d5"
+                }
+            ]
+        },
+        {
+            "id": "58a4abb9-571e-4fca-9f15-e49e0afc4bc2",
+            "title": "Ingeniería y Arquitectura",
+            "description": "Explora el mundo de la ingeniería y la arquitectura con estos cursos.",
+            "courses": [
+                {
+                    "id": "8f6770fc-9508-4a15-a990-9482d028ce9e",
+                    "title": "Experto en Ingeniería y Arquitectura 1",
+                    "popularity": 4.0,
+                    "expert": "Javier López",
+                    "image": "https://picsum.photos/200/185?random=233",
+                    "price": 140000,
+                    "duration": 7.2,
+                    "categoryId": "58a4abb9-571e-4fca-9f15-e49e0afc4bc2",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Domina experto en ingeniería y arquitectura 1 con Javier López, uno de los expertos más reconocidos en ingeniería y arquitectura. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/8f6770fc-9508-4a15-a990-9482d028ce9e"
+                },
+                {
+                    "id": "ebb215ff-d546-4085-bcea-8ce972bf94ee",
+                    "title": "Taller Práctico Ingeniería y Arquitectura 2",
+                    "popularity": 4.0,
+                    "expert": "Javier López",
+                    "image": "https://picsum.photos/200/185?random=325",
+                    "price": 490000,
+                    "duration": 73.4,
+                    "categoryId": "58a4abb9-571e-4fca-9f15-e49e0afc4bc2",
+                    "headline": "Potencia tu creatividad y mejora tus ingresos con nuevas competencias de alto valor.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/gfmjMWjn-Xg",
+                    "introText": "En este curso de taller práctico ingeniería y arquitectura 2, Javier López te guiará a través de un recorrido completo que transformará tu manera de abordar ingeniería y arquitectura. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/ebb215ff-d546-4085-bcea-8ce972bf94ee"
+                },
+                {
+                    "id": "f3d2342c-8258-4fad-b0bc-8e0143818d99",
+                    "title": "Taller Práctico Ingeniería y Arquitectura 3",
+                    "popularity": 3.7,
+                    "expert": "Prof. Doe",
+                    "image": "https://picsum.photos/200/185?random=577",
+                    "price": 190000,
+                    "duration": 95.8,
+                    "categoryId": "58a4abb9-571e-4fca-9f15-e49e0afc4bc2",
+                    "headline": "Domina la teoría y la práctica con este curso intensivo que cambiará tu perspectiva.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/iqKdEhx-dD4",
+                    "introText": "En este curso de taller práctico ingeniería y arquitectura 3, Prof. Doe te guiará a través de un recorrido completo que transformará tu manera de abordar ingeniería y arquitectura. Con ejercicios prácticos y casos de estudio, desarrollarás habilidades que el mercado demanda.",
+                    "paymentLink": "https://example.com/payment/f3d2342c-8258-4fad-b0bc-8e0143818d99"
+                },
+                {
+                    "id": "a339cba5-97d4-433f-bfe3-5a7418c747b7",
+                    "title": "Avanzado Ingeniería y Arquitectura 4",
+                    "popularity": 3.6,
+                    "expert": "María Rodríguez",
+                    "image": "https://picsum.photos/200/185?random=772",
+                    "price": 170000,
+                    "duration": 49.9,
+                    "categoryId": "58a4abb9-571e-4fca-9f15-e49e0afc4bc2",
+                    "headline": "Desarrolla habilidades críticas y resuelve problemas complejos con metodología probada.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/6Af6b_wyiwI",
+                    "introText": "Domina avanzado ingeniería y arquitectura 4 con María Rodríguez, uno de los expertos más reconocidos en ingeniería y arquitectura. Este curso te llevará desde los fundamentos hasta técnicas avanzadas, proporcionándote las herramientas necesarias para destacar en tu campo profesional.",
+                    "paymentLink": "https://example.com/payment/a339cba5-97d4-433f-bfe3-5a7418c747b7"
+                },
+                {
+                    "id": "37d34fd3-1cdf-4bd3-a3c1-6a9da090a2cb",
+                    "title": "Introducción Ingeniería y Arquitectura 5",
+                    "popularity": 4.4,
+                    "expert": "Sofía Pérez",
+                    "image": "https://picsum.photos/200/185?random=423",
+                    "price": 210000,
+                    "duration": 8.8,
+                    "categoryId": "58a4abb9-571e-4fca-9f15-e49e0afc4bc2",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Básico",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Aprende introducción ingeniería y arquitectura 5 de la mano de Sofía Pérez. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/37d34fd3-1cdf-4bd3-a3c1-6a9da090a2cb"
+                },
+                {
+                    "id": "6a7a0883-097f-4522-a4b0-535e3bd03068",
+                    "title": "Fundamentos Ingeniería y Arquitectura 6",
+                    "popularity": 4.6,
+                    "expert": "Alexander Diaz",
+                    "image": "https://picsum.photos/200/185?random=528",
+                    "price": 220000,
+                    "duration": 71.6,
+                    "categoryId": "58a4abb9-571e-4fca-9f15-e49e0afc4bc2",
+                    "headline": "Descubre las técnicas más avanzadas para dominar esta habilidad y destacar en el mercado laboral actual.",
+                    "level": "Avanzado",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Aprende fundamentos ingeniería y arquitectura 6 de la mano de Alexander Diaz. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/6a7a0883-097f-4522-a4b0-535e3bd03068"
+                },
+                {
+                    "id": "05ac16a9-4a0b-459b-b5f8-24ab359d0186",
+                    "title": "Experto en Ingeniería y Arquitectura 7",
+                    "popularity": 4.5,
+                    "expert": "Javier López",
+                    "image": "https://picsum.photos/200/185?random=935",
+                    "price": 240000,
+                    "duration": 68.6,
+                    "categoryId": "58a4abb9-571e-4fca-9f15-e49e0afc4bc2",
+                    "headline": "El curso definitivo para quienes buscan excelencia y resultados tangibles.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/L_LUpnjgPso",
+                    "introText": "Aprende experto en ingeniería y arquitectura 7 de la mano de Javier López. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/05ac16a9-4a0b-459b-b5f8-24ab359d0186"
+                },
+                {
+                    "id": "81750f27-92f4-41c9-8bd1-2263cd92e9b7",
+                    "title": "Fundamentos Ingeniería y Arquitectura 8",
+                    "popularity": 4.4,
+                    "expert": "Laura Gómez",
+                    "image": "https://picsum.photos/200/185?random=305",
+                    "price": 490000,
+                    "duration": 93.3,
+                    "categoryId": "58a4abb9-571e-4fca-9f15-e49e0afc4bc2",
+                    "headline": "Una guía completa paso a paso diseñada por expertos para llevarte desde principiante hasta profesional.",
+                    "level": "Intermedio",
+                    "introVideoUrl": "https://www.youtube.com/embed/WTFZjyy1y2M",
+                    "introText": "Aprende fundamentos ingeniería y arquitectura 8 de la mano de Laura Gómez. Este programa intensivo combina teoría y práctica para que puedas aplicar inmediatamente lo aprendido en situaciones reales. Perfecto para quienes buscan resultados tangibles.",
+                    "paymentLink": "https://example.com/payment/81750f27-92f4-41c9-8bd1-2263cd92e9b7"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-446655420002",
-      "title": "Tecnología y programación",
-      "description": "Aprende a crear soluciones tecnológicas, resuelve problemas complejos y adquiere habilidades que están en alta demanda en el mercado laboral. ¡Empieza a programar hoy y da el primer paso hacia un futuro lleno de posibilidades!",
-      "courses": [
+    ],
+    "experts": [
         {
-          "id": "770e8400-e29b-41d4-a716-446655440011",
-          "title": "Curso de Python",
-          "popularity": 4.8,
-          "expert": "Guido van Rossum",
-          "image": "https://picsum.photos/200/185?random=23"
+            "id": "550e8400-e29b-41d4-a716-443655440000",
+            "name": "Sebastián Torres",
+            "profession": "Comediante"
         },
         {
-          "id": "770e8400-e29b-41d4-a716-446655440012",
-          "title": "Curso de JavaScript",
-          "popularity": 4.7,
-          "expert": "Brendan Eich",
-          "image": "https://picsum.photos/200/185?random=24"
+            "id": "550e8400-e29b-41d4-a716-443655440002",
+            "name": "Carlos Pérez",
+            "profession": "Ingeniero de software"
         },
         {
-          "id": "770e8400-e29b-41d4-a716-446655440013",
-          "title": "Curso de Java",
-          "popularity": 4.6,
-          "expert": "James Gosling",
-          "image": "https://picsum.photos/200/185?random=25"
+            "id": "550e8400-e29b-41d4-a716-443655440001",
+            "name": "Valeria Mendoza",
+            "profession": "Directora cinematográfica"
         },
         {
-          "id": "770e8400-e29b-41d4-a716-446655440014",
-          "title": "Curso de C++",
-          "popularity": 4.5,
-          "expert": "Bjarne Stroustrup",
-          "image": "https://picsum.photos/200/185?random=26"
+            "id": "550e8400-e29b-41d4-a716-443655440003",
+            "name": "María Rodríguez",
+            "profession": "Diseñadora gráfica"
         },
         {
-          "id": "770e8400-e29b-41d4-a716-446655440015",
-          "title": "Curso de C#",
-          "popularity": 4.6,
-          "expert": "Anders Hejlsberg",
-          "image": "https://picsum.photos/200/185?random=27"
+            "id": "550e8400-e29b-41d4-a716-443655440004",
+            "name": "Javier López",
+            "profession": "Emprendedor"
         },
         {
-          "id": "770e8400-e29b-41d4-a716-446655440016",
-          "title": "Curso de Ruby",
-          "popularity": 4.4,
-          "expert": "Yukihiro Matsumoto",
-          "image": "https://picsum.photos/200/185?random=28"
+            "id": "550e8400-e29b-41d4-a716-443655440006",
+            "name": "Juan Martínez",
+            "profession": "Desarrollador web"
         },
         {
-          "id": "770e8400-e29b-41d4-a716-446655440017",
-          "title": "Curso de PHP",
-          "popularity": 4.3,
-          "expert": "Rasmus Lerdorf",
-          "image": "https://picsum.photos/200/185?random=29"
+            "id": "550e8400-e29b-41d4-a716-443655440006",
+            "name": "Alexander Diaz",
+            "profession": "Fotografo profesional"
         },
         {
-          "id": "770e8400-e29b-41d4-a716-446655440018",
-          "title": "Curso de Swift",
-          "popularity": 4.5,
-          "expert": "Chris Lattner",
-          "image": "https://picsum.photos/200/185?random=30"
+            "id": "550e8400-e29b-41d4-a716-443655440005",
+            "name": "Laura Gómez",
+            "profession": "Psicóloga"
         },
         {
-          "id": "770e8400-e29b-41d4-a716-446655440019",
-          "title": "Curso de Go",
-          "popularity": 4.6,
-          "expert": "Robert Griesemer",
-          "image": "https://picsum.photos/200/185?random=31"
+            "id": "550e8400-e29b-41d4-a716-443655440006",
+            "name": "Juan Ramirez",
+            "profession": "Nutricionista"
         },
         {
-          "id": "770e8400-e29b-41d4-a716-446655440020",
-          "title": "Curso de Kotlin",
-          "popularity": 4.7,
-          "expert": "JetBrains",
-          "image": "https://picsum.photos/200/185?random=32"
+            "id": "550e8400-e29b-41d4-a716-443655440007",
+            "name": "Sofía Pérez",
+            "profession": "Coaching"
         }
-      ]
-    }
-  ],
-  "experts": [
-    {
-      "id": "550e8400-e29b-41d4-a716-443655440000",
-      "name": "Sebastián Torres",
-      "profession": "Comediante",
-      "image": "https://picsum.photos/300/400?random=33"
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-443655440001",
-      "name": "Valeria Mendoza",
-      "profession": "Directora cinematográfica",
-      "image": "https://picsum.photos/300/400?random=34"
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-443655440002",
-      "name": "Carlos Pérez",
-      "profession": "Ingeniero de software",
-      "image": "https://picsum.photos/300/400?random=35"
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-443655440003",
-      "name": "María Rodríguez",
-      "profession": "Diseñadora gráfica",
-      "image": "https://picsum.photos/300/400?random=36"
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-443655440004",
-      "name": "Javier López",
-      "profession": "Músico",
-      "image": "https://picsum.photos/300/400?random=38"
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-443655440005",
-      "name": "Laura Gómez",
-      "profession": "Psicóloga",
-      "image": "https://picsum.photos/300/400?random=39"
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-443655440006",
-      "name": "Juan Martínez",
-      "profession": "Ingeniero civil",
-      "image": "https://picsum.photos/300/400?random=40"
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-443655440007",
-      "name": "Sofía Pérez",
-      "profession": "Nutricionista",
-      "image": "https://picsum.photos/300/400?random=41"
-    },
-    {
-      "id": "550e8400-e29b-41d4-a716-443655440008",
-      "name": "Luisa Torres",
-      "profession": "Profesora de inglés",
-      "image": "https://picsum.photos/300/400?random=42"
-    }
-  ]
+    ]
 }

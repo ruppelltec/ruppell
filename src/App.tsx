@@ -2,6 +2,7 @@ import "./index.css";
 import "./App.css";
 import "swiper/swiper-bundle.css";
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import LandingFragment from "./components/LandingFragment";
@@ -11,8 +12,21 @@ import CoursesFragment from "./components/CoursesFragment";
 import Footer from "./components/Footer";
 import ExpertsFragment from "./components/ExpertsFragment";
 import LoadingScreen from "./components/LoadingScreen";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import CoursesPage from "./pages/CoursesPage";
+import { useAuth } from "./context/AuthContext";
 import { ImageLoaderProvider } from "./context/ImageLoaderContext";
+
+const LandingPage = () => (
+  <>
+    <Header />
+    <LandingFragment />
+    <AboutFragment />
+    <RuppellBand />
+    <CoursesFragment />
+    <ExpertsFragment />
+    <Footer />
+  </>
+);
 
 const AppContent: React.FC = () => {
   const { isAuthenticated } = useAuth();
@@ -34,24 +48,17 @@ const AppContent: React.FC = () => {
   }
 
   return (
-    <>
-      <Header />
-      <LandingFragment />
-      <AboutFragment />
-      <RuppellBand />
-      <CoursesFragment />
-      <ExpertsFragment />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/courses" element={<CoursesPage />} />
+    </Routes>
   );
 };
 
 const App: React.FC = () => {
   return (
     <ImageLoaderProvider>
-      <AuthProvider>
-        <AppContent />
-      </AuthProvider>
+      <AppContent />
     </ImageLoaderProvider>
   );
 };

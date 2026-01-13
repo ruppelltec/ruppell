@@ -8,8 +8,9 @@ export const NavbarLogo = ({ className }: NavbarLogoProps) => {
   return (
     <img
       src={logoGolden}
-      className={`object-cover h-full ${className}`}
+      className={`object-contain ${className}`}
       alt="Ruppell Logo"
+      style={{ maxHeight: '46px' }}
     />
   );
 };

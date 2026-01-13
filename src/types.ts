@@ -6,6 +6,15 @@ export interface Course {
   popularity: number;
   expert: string;
   image: string;
+  price: number;
+  duration: number; // Duration in hours
+  categoryId?: string; // Optional reference for flattening
+  categoryTitle?: string; // Added for UI display
+  headline?: string;
+  level?: 'Básico' | 'Intermedio' | 'Avanzado';
+  introVideoUrl?: string; // YouTube video URL for course intro
+  introText?: string; // Detailed introduction text for modal
+  paymentLink?: string; // Payment/purchase link
 }
 
 export interface Category {

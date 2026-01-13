@@ -1,27 +1,35 @@
 import { Nest } from "../../types";
+import { motion } from "motion/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 interface NestItemProps {
   nest: Nest;
-  variant: 'left' | 'right';
+  isActive: boolean;
+  onHover: () => void;
 }
 
-export const NestItem = ({ nest, variant }: NestItemProps) => {
-  const isLeft = variant === 'left';
-  const accentColor = isLeft ? 'bg-golden-yellow-500' : 'bg-orange-earth-500';
-
+export const NestItem = ({ nest, isActive, onHover }: NestItemProps) => {
   return (
-    <div className={`flex flex-col self-center relative z-10 p-4 max-w-[400px] lg:w-1/4 md:max-w-[350px] lg:min-w-[350px] lg:max-w-[400px] bg-white shadow-lg rounded-2xl ${isLeft ? 'ml-4 md:mr-100 md:ml-0 lg:mr-0 lg:ml-0' : 'mr-4 md:ml-100 md:mr-0 lg:mr-0 lg:ml-0'}`}>
-      <div className={`absolute right-0 top-[30px] ${accentColor} h-[10px] rounded-l-xl w-[20px] z-1`}></div>
-
-      <div className="flex items-center mb-2 space-x-5 w-full">
-        <h2 className="text-lg w-full text-center font-semibold text-deep-black-500">
+    <motion.div
+      onMouseEnter={onHover}
+      className={`group cursor-pointer relative flex items-center justify-between p-5 rounded-xl transition-all duration-300 ${isActive
+          ? "bg-white shadow-md border-l-4 border-golden-yellow-500"
+          : "hover:bg-white/50 border-l-4 border-transparent"
+        }`}
+      whileHover={{ x: 5 }}
+    >
+      <div className="flex flex-col">
+        <h3 className={`font-bold text-lg transition-colors duration-300 ${isActive ? "text-deep-black-500" : "text-gray-500 group-hover:text-deep-black-500"
+          }`}>
           {nest.title}
-        </h2>
+        </h3>
       </div>
-      <p className="text-sm w-full text-center self-center text-deep-black-500">
-        {nest.description}
-      </p>
-    </div>
+
+      <div className={`transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-50"}`}>
+        <FontAwesomeIcon icon={faChevronRight} className="text-golden-yellow-500" />
+      </div>
+    </motion.div>
   );
 };
 

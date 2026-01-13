@@ -3,16 +3,18 @@ import { motion, AnimatePresence } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Category } from "../../types";
+import { useNavigate } from "react-router-dom";
 
 interface AnimatedSearchInputProps {
   categories: Category[];
   // placeholder?: string;
 }
 
-export const AnimatedSearchInput = ({ 
-  categories, 
-  // placeholder = "Busca tu curso ideal..." 
+export const AnimatedSearchInput = ({
+  categories,
+  // placeholder = "Busca tu curso ideal..."
 }: AnimatedSearchInputProps) => {
+  const navigate = useNavigate();
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -91,8 +93,8 @@ export const AnimatedSearchInput = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchValue.trim()) {
-      // Aquí puedes implementar la lógica de búsqueda real
-      console.log("Buscando:", searchValue);
+      // Navegar a la página de cursos con el término de búsqueda como parámetro de consulta
+      navigate(`/courses?search=${encodeURIComponent(searchValue)}`);
     }
   };
 
@@ -192,7 +194,10 @@ export const AnimatedSearchInput = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.7 + index * 0.1 }}
             whileHover={{ scale: 1.05, backgroundColor: "rgba(30, 30, 30, 0.8)" }}
-            onClick={() => setSearchValue(courseName)}
+            onClick={() => {
+              setSearchValue(courseName);
+              navigate(`/courses?search=${encodeURIComponent(courseName)}`);
+            }}
             className="px-3 py-1 bg-gray-800/60 backdrop-blur-sm rounded-full text-gray-200 text-xs hover:bg-gray-700/80 transition-all duration-300 cursor-pointer border border-gray-600/30"
           >
             {courseName}

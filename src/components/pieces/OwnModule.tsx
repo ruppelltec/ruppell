@@ -5,10 +5,10 @@ const birdNest = "/assets/bird-nest.png";
 export const OwnModule = () => {
   return (
     <section className="relative z-2 md:pb-10 bg-white">
-      <div className=" bg-beige-sand-500 shadow-xl h-full">
+      <div className="bg-beige-sand-500 shadow-xl h-full">
         <div className="lg:hidden">
           <h1 className="text-4xl text-custom-size-1 md:text-6xl pt-40 md:pt-20 pb-5 font-bold text-deep-black-500 pl-5 w-full leading-12 md:leading-16">
-            Crea tu propio <br /> módulo
+            Crea tu propio <br /> nido
           </h1>
           <div className="flex justify-end">
             <hr className="py-3 text-muted-500 max-w-[300px] min-w-[180px] w-1/3" />
@@ -43,7 +43,7 @@ export const OwnModule = () => {
 
               <div className="hidden lg:block lg:max-w-[800px]">
                 <h1 className="text-4xl text-custom-size-1 md:text-6xl xl:text-7xl pt-40 md:pt-20 pb-5 font-bold text-deep-black-500 pl-5 w-full leading-20 md:leading-16">
-                  Crea tu propio <br /> módulo
+                  Crea tu propio <br /> nido
                 </h1>
                 <div className="flex justify-end">
                   <hr className="py-3 text-muted-500 max-w-[300px] min-w-[180px] w-1/3" />

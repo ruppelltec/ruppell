@@ -12,8 +12,8 @@ export const AboutFragment = () => {
           id="second-section-about"
           className="flex-1 py-5 min-h-[1100px] md:min-h-[950px] lg:min-h-[900px] md:h-[calc(100vh-100px)] relative md:static md:w-1/2"
         >
-          <h1 className="md:absolute text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-deep-black-500 px-4 text-center w-full pt-10 z-4 leading-14">
-            APRENDE SIN LIMITES
+          <h1 className="md:absolute text-4xl sm:text-5xl md:text-6xl font-bold text-deep-black-500 text-center w-full pt-10 z-4 leading-tight">
+            Aprende sin Limites
           </h1>
 
           <div

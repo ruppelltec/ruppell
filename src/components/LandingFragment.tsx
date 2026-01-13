@@ -128,7 +128,7 @@ export const LandingFragment = () => {
               delay: 0.5,
               ease: [0, 0.71, 0.2, 1.01],
             }}
-            className="mt-32 md:mt-0 flex justify-center"
+            className="mt-0 flex justify-center"
           >
             <img
               src={ruppellTitle}

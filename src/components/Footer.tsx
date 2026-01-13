@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Footer = () => {
   return (
-    <footer className="z-100 absolute py-10 bg-black text-white flex flex-col md:flex-row items-center min-w-[300px] w-[100vw] justify-around shadow-xl">
+    <footer className="z-1000 py-10 bg-black text-white flex flex-col md:flex-row items-center min-w-[300px] w-[100vw] justify-around shadow-xl relative">
       <div className="flex justify-center w-[300px]">
         <NavbarLogo className="w-[200px] max-h-[50px]" />
       </div>
@@ -21,7 +21,7 @@ export const Footer = () => {
         <FontAwesomeIcon className="text-4xl" icon={faYoutube} />
       </div>
       <p className="text-xl mt-5 md:mt-0 text-center text-golden-yellow-500 w-[300px]">
-        © Ruppell Copyright 2025
+        © Ruppell Copyright 2026
       </p>
     </footer>
   );

@@ -5,6 +5,7 @@ import SmartImage from "./SmartImage";
 
 const arrowUp = "/assets/arrow-up.png";
 const logoEarth = "/assets/logo-earth.png";
+const expertsGallery = "assets/experts/person_";
 
 export const ExpertsFragment = () => {
   const { experts, loading } = useExperts();
@@ -48,7 +49,7 @@ export const ExpertsFragment = () => {
                 >
                   <div className="relative z-50">
                     <SmartImage
-                      src={expert.image || `https://picsum.photos/300/400?random=${index}}]`}
+                      src={`${expertsGallery}${index}.jpg`}
                       alt={`Expert: ${expert.name}`}
                       className="w-full h-[400px] object-cover shadow-2xl rounded-t-2xl"
                     />
