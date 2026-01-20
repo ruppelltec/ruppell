@@ -16,6 +16,8 @@ import CoursesPage from "./pages/CoursesPage";
 import { useAuth } from "./context/AuthContext";
 import { ImageLoaderProvider } from "./context/ImageLoaderContext";
 
+import StandUpCoursePage from "./pages/StandUpCoursePage";
+
 const LandingPage = () => (
   <>
     <Header />
@@ -51,6 +53,7 @@ const AppContent: React.FC = () => {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/courses" element={<CoursesPage />} />
+      <Route path="/stand-up-comedy" element={<StandUpCoursePage />} />
     </Routes>
   );
 };
