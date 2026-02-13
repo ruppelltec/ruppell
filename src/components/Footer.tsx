@@ -6,16 +6,19 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
+const logoGolden = "/assets/logo_ruppell_golden.png";
+
 export const Footer = () => {
   return (
     <footer className="bg-black py-10 px-6 lg:py-20 lg:px-8 mt-6 border-t border-gray-800 w-full z-10 relative">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-12 text-center lg:text-left">
         <div className="space-y-4">
-          <div className="flex justify-center lg:justify-start items-center gap-2 opacity-80">
-            <FontAwesomeIcon icon={faGlobe} className="text-primary" />
-            <span className="font-display font-bold text-xl text-white">
-              Ruppell
-            </span>
+          <div className="flex justify-center lg:justify-start items-center gap-2">
+            <img
+              src={logoGolden}
+              alt="Ruppell Logo"
+              className="h-8 w-auto object-contain"
+            />
           </div>
           <p className="text-sm text-muted-dark">
             APRENDE - CONECTA - CRECE

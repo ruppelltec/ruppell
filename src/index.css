@@ -3,18 +3,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #DCA328;
-  --color-primary-hover: #C28E20;
-  --color-background-light: #F9FAFB;
+  --color-primary: #dca328;
+  --color-primary-hover: #c28e20;
+  --color-background-light: #f9fafb;
   --color-background-dark: #121212;
-  --color-surface-light: #FFFFFF;
-  --color-surface-dark: #1E1E1E;
-  --color-text-light: #1F2937;
-  --color-text-dark: #F3F4F6;
-  --color-muted-light: #6B7280;
-  --color-muted-dark: #9CA3AF;
+  --color-surface-light: #ffffff;
+  --color-surface-dark: #1e1e1e;
+  --color-text-light: #1f2937;
+  --color-text-dark: #f3f4f6;
+  --color-muted-light: #6b7280;
+  --color-muted-dark: #9ca3af;
 
   --font-display: "Montserrat", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
   --font-body: "Open Sans", sans-serif;
 
   --radius-xl: 20px;
@@ -73,7 +74,7 @@
 
 /* Stand-Up Course Page Specifics */
 .gold-gradient-text {
-  background: linear-gradient(to right, #FDE68A, #DCA328, #FDE68A);
+  background: linear-gradient(to right, #fde68a, #dca328, #fde68a);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
